@@ -48,6 +48,10 @@ def main():
     encoder = Encoder(len(input_vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, DROPOUT)
     decoder = Decoder(len(output_vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, DROPOUT)
     model = Seq2Seq(encoder, decoder, DEVICE).to(DEVICE)
+
+    print(f"  Model device: {next(model.parameters()).device}")
+    print(f"  CUDA available: {torch.cuda.is_available()}")
+    print(f"  GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'None'}")
     
     # Training setup
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
