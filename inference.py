@@ -45,6 +45,65 @@ def translate_command(model, sentence, input_vocab, output_vocab, device, max_le
                 output_words.append(output_vocab.idx2word[idx])
         
         return ' '.join(output_words)
+    
+def translate_command_beam(model, sentence, input_vocab, output_vocab, device, beam_width=5,max_len=50):
+    """Beam Search holds best set of K Candiates unlike the previous 
+    greedy search which only holds the best candidate at each
+    this is to improve the quality of the generated command by exploring multiple possibilities at each step.
+    """
+    model.eval()
+    with torch.no_grad():
+        tokens = input_vocab.sentence_to_indices(sentence.lower())
+        tokens_tensor = torch.LongTesnor(tokens).unsqueeze(0).to(device)
+        lengths = torch.LongTensor([len(tokens)])
+
+        encoder_outputs,hidden, cell = model.encoder(tokens_tensor, lengths)
+
+        #Each beam: (score, token_ids, hidden, cell)
+        beams = [(0.0, [output_vocab.word2idx["<SOS>"]], hidden, cell)]
+        completed = []
+
+        for _ in range(max_len):
+            new_beams = []
+            for score, token_so_far, hidden, cell in beams:
+                if token_so_far[-1] == output_vocab.word2idx["<EOS>"]:
+                    completed.append((score, token_so_far))
+                    continue
+                
+                input_token = torch.LongTensor([[token_so_far[-1]]]).to(device)
+                output, new_h, new_c, _ = model.decoder(input_token, hidden, cell, encoder_outputs)
+
+                log_probs = torch.log_softmax(output, dim=1)
+                top_probs, top_tokens = log_probs.topk(beam_width)
+
+                for i in range(beam_width):
+                    new_score = score + top_probs[0][i].item()
+                    new_tokens = token_so_far + [top_tokens[0][i].item()]
+                    new_beams.append((new_score, new_tokens, new_h, new_c))
+                
+            # Keep top k Beams in the Beam width
+            beams = sorted(new_beams, key=lambda x: x[0], reverse=True)[:beam_width]
+
+            if len(completed) >= beam_width:
+                break
+        
+        # Use Best completed beam or best active beam
+        if completed:
+            best = sorted(completed, key=lambda x: x[0], reverse=True)[0][1]
+        else:
+            best = beams[0][1]
+
+        output_words = [
+            output_vocab.idx2word[idx] for idx in best
+            if idx not in [output_vocab.word2idx["<SOS>"], 
+                          output_vocab.word2idx["<EOS>"],
+                          output_vocab.word2idx["<PAD>"]]
+        ]
+        return ' '.join(output_words)    
+                
+
+
+    
 
 def main():
     print("Loading model...")

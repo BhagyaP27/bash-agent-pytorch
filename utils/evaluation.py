@@ -1,5 +1,5 @@
 import torch
-from inference import translate_command
+from inference import translate_command, translate_command_beam
 
 def calculate_accuracy(model, test_data, input_vocab, output_vocab, device):
     """Calculate exact match accuracy"""
@@ -14,7 +14,7 @@ def calculate_accuracy(model, test_data, input_vocab, output_vocab, device):
             inp = item['input']
             expected = item['output']
             
-            predicted = translate_command(model, inp, input_vocab, output_vocab, device)
+            predicted = translate_command_beam(model, inp, input_vocab, output_vocab, device)
             
             if predicted.strip() == expected.strip():
                 correct += 1
