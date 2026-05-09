@@ -135,7 +135,13 @@ def reinject_entities(command: str, entities: ExtractedEntities) -> str:
         result = result.replace('<NAME>', entities.filename.split('.')[0])
     if '<EXT>' in result and entities.filename and '.' in entities.filename:
         result = result.replace('<EXT>', entities.filename.split('.')[-1])
- 
+    
+    #  Fallback: model output "touch <NAME>" instead of "touch <NAME>.<EXT>" 
+    if entities.name and entities.extension:
+        if entities.name in result and f'.{entities.extension}' not in result:
+            result = result.replace(entities.name, f'{entities.name}.{entities.extension}', 1)
+
+
     return result
  
  
