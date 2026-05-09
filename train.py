@@ -12,8 +12,6 @@ from models.decoder import Decoder
 from models.seq2seq import Seq2Seq
 from utils.train_utils import train_epoch, save_checkpoint
 
-from config import *;
-print(f"DEBUG: NUM_LAYERS = {NUM_LAYERS}, type = {type(NUM_LAYERS)}")
 
 def main():
     print(f" Using device: {DEVICE}")
@@ -53,6 +51,9 @@ def main():
     
     # Training setup
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, mode='min', factor=0.5, patience=50, verbose=True
+        )
     criterion = nn.CrossEntropyLoss(ignore_index=0)
     
     os.makedirs(CHECKPOINT_DIR, exist_ok=True)
@@ -67,12 +68,14 @@ def main():
         )
         
         print(f"Epoch {epoch+1}/{NUM_EPOCHS} - Loss: {avg_loss:.4f}")
-        
+        scheduler.step(avg_loss)
+
         if avg_loss < best_loss:
             best_loss = avg_loss
             save_checkpoint(
                 model, input_vocab, output_vocab, optimizer, epoch, avg_loss, MODEL_SAVE_PATH
             )
+            print(f"  ✓ New best loss: {best_loss:.4f}") 
         
         if (epoch + 1) % 50 == 0:
             print(f"📸 Checkpoint at epoch {epoch+1}")
