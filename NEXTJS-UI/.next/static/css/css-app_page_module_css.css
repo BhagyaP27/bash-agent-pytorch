@@ -1,0 +1,178 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./app/page.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/* Global reset for terminal aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&display=swap');
+ 
+.page_main__nw1Wk {
+  min-height: 100vh;
+  background: #060606;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+ 
+.page_container__jZF7q {
+  width: 100%;
+  max-width: 720px;
+}
+
+
+/* Terminal window styling */
+.page_terminal__K0pHl {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1a1a1a;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+}
+ 
+.page_titleBar__3btUI {
+  background: #1a1a1a;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #2a2a2a;
+}
+ 
+.page_dot__aVcaO {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.page_dotRed__yRzRD    { background: #ff5f57; }
+.page_dotYellow__Iv4Aq { background: #febc2e; }
+.page_dotGreen__YTNM_  { background: #28c840; }
+ 
+.page_titleLabel__Cr_fe {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #555;
+  margin: 0 auto;
+}
+ 
+.page_output__rEEVM {
+  background: #0d0d0d;
+  padding: 16px 20px;
+  min-height: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+ 
+.page_output__rEEVM::-webkit-scrollbar { width: 4px; }
+.page_output__rEEVM::-webkit-scrollbar-track { background: #0d0d0d; }
+.page_output__rEEVM::-webkit-scrollbar-thumb { background: #1e3a1e; border-radius: 2px; }
+ 
+.page_line__F99Py {
+  margin: 2px 0;
+}
+ 
+.page_info__8WZDv  { color: #475569; }
+.page_error__JBrsB { color: #f87171; }
+ 
+.page_inputArea__RJBCo {
+  background: #111;
+  border-top: 1px solid #1e1e1e;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.page_prompt__C_iZP {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+ 
+.page_inputField__jEGaT {
+  flex: 1 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #e2e8f0;
+  caret-color: #4ade80;
+}
+ 
+.page_inputField__jEGaT::placeholder { color: #334155; }
+ 
+.page_runBtn__Q9zxh {
+  background: #14532d;
+  border: 0.5px solid #166534;
+  color: #86efac;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.page_runBtn__Q9zxh:hover:not(:disabled) { background: #166534; }
+.page_runBtn__Q9zxh:disabled { opacity: 0.35; cursor: not-allowed; }
+ 
+.page_statusBar__kb_eM {
+  background: #0a0a0a;
+  border-top: 1px solid #141414;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ 
+.page_statusDot__ZNMMv {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.page_statusOn__KNFa7  { background: #22c55e; }
+.page_statusOff__mE1fk { background: #334155; }
+ 
+.page_statusText__6Vir_ { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #475569; }
+.page_statusRight__B_DrF { margin-left: auto; }
+
+/* Styling for the examples*/
+.page_examplesSection__NZ2eJ { margin-top: 16px; }
+ 
+.page_examplesLabel__mg8bh {
+  font-size: 11px;
+  font-weight: 500;
+  color: #475569;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+ 
+.page_chips___KIQm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+ 
+.page_chip__Uuh_t {
+  background: #0f172a;
+  border: 0.5px solid #1e293b;
+  color: #94a3b8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.page_chip__Uuh_t:hover {
+  border-color: #334155;
+  color: #cbd5e1;
+  background: #1e293b;
+}
+

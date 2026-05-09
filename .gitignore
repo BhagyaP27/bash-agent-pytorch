@@ -1,0 +1,8 @@
+
+NEXTJS-UI/node_modules/
+*.node
+
+NEXTJS-UI/node_modules/
+*.node
+checkpoints/
+*.pth
