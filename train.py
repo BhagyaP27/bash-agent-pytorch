@@ -52,7 +52,7 @@ def main():
     # Training setup
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='min', factor=0.5, patience=50, verbose=True
+        optimizer, mode='min', factor=0.5, patience=50
         )
     criterion = nn.CrossEntropyLoss(ignore_index=0)
     
