@@ -71,6 +71,7 @@ def load_model():
 class TranslateRequest(BaseModel):
     text: str
     debug: Optional[bool] = False # return intermediate pipeline steps
+    model_type: Optional[str] = "t5" # lstm or "t5"
 
 class TranslateResponse(BaseModel):
     input: str

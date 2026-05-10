@@ -3,6 +3,7 @@ from models.encoder import Encoder
 from models.decoder import Decoder
 from models.seq2seq import Seq2Seq
 from config import *
+from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 def translate_command(model, sentence, input_vocab, output_vocab, device, max_len=50):
     """Translate natural language to bash command"""
@@ -100,6 +101,24 @@ def translate_command_beam(model, sentence, input_vocab, output_vocab, device, b
                           output_vocab.word2idx["<PAD>"]]
         ]
         return ' '.join(output_words)    
+    
+def translate_command_t5(sentence, model_path='checkpoints/t5_bash_agent', max_len=50):
+    tokenizer = T5Tokenizer.from_pretrained(model_path)
+    model = T5ForConditionalGeneration.from_pretrained(model_path)
+    model.eval()
+
+    input_text = f"translate English to bash: {sentence}"
+    inputs = tokenizer(input_text, return_tensors='pt', max_length=64, truncation=True)
+
+    with torch.no_grad():
+        outputs = model.generate(
+            inputs.input_ids,
+            max_length=max_len,
+            num_beams=5,          # beam search built into T5
+            early_stopping=True
+        )
+
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
                 
 
 
