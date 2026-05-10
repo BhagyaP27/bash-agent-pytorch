@@ -1,11 +1,11 @@
-from transformers import T5orConditionalGeneration, T5Tokenizer
+from transformers import T5ForConditionalGeneration, T5Tokenizer
 import torch
 import json
 
 tokenizer = T5Tokenizer.from_pretrained('t5-small')
-model = T5orConditionalGeneration.from_pretrained('t5-small')
+model = T5ForConditionalGeneration.from_pretrained('t5-small')
 
-data = json.load(open('data/bash_commands.json'))
+data = json.load(open('data/raw_commands.json'))
 
 # T5 expects "Translate English to bash: <input>"
 def prepare(item):

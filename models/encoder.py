@@ -40,17 +40,17 @@ class Encoder(nn.Module):
         # Merge forward + backward for each layer
         # hidden shape: (num_layer * 2, batch, hidden_dim)
 
-        hidden = self._merge_directions(hidden)
-        cell = self._merge_directions(cell)
+        hidden = self._merge_directions(hidden, self.fc_hidden)
+        cell = self._merge_directions(cell, self.fc_cell)
 
         return outputs, hidden, cell
     
-    def _merge_directions(self, state):
+    def _merge_directions(self, state, projection_layer):
         # state: (num_layers * 2, batch, hidden_dim)
         # concat forward/backward per layer, (num_layers, batch, hidden_dim*2)
         # project -> (num_layers, batch, hidden_dim)
         fwd = state[0::2]  # (num_layers, batch, hidden_dim) = forward states
         bwd = state[1::2]  # (num_layers, batch, hidden_dim) = backwards states
         merged = torch.cat([fwd, bwd], dim=2)
-        return torch.tanh(self.fc_hidden(merged))
+        return torch.tanh(projection_layer(merged))
         

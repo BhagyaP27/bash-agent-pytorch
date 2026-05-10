@@ -11,7 +11,7 @@ class Decoder(nn.Module):
         self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=0)
         self.attention = Attention(hidden_dim)
         self.lstm = nn.LSTM(
-            embedding_dim + hidden_dim,
+            embedding_dim + hidden_dim * 2,
             hidden_dim, 
             int(num_layers),
             batch_first=True,

@@ -55,7 +55,7 @@ def translate_command_beam(model, sentence, input_vocab, output_vocab, device, b
     model.eval()
     with torch.no_grad():
         tokens = input_vocab.sentence_to_indices(sentence.lower())
-        tokens_tensor = torch.LongTesnor(tokens).unsqueeze(0).to(device)
+        tokens_tensor = torch.LongTensor(tokens).unsqueeze(0).to(device)
         lengths = torch.LongTensor([len(tokens)])
 
         encoder_outputs,hidden, cell = model.encoder(tokens_tensor, lengths)
