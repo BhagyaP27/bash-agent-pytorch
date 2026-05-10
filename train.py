@@ -40,7 +40,9 @@ def main():
         dataset, 
         batch_size=BATCH_SIZE, 
         shuffle=True, 
-        collate_fn=collate_fn
+        collate_fn=collate_fn,
+        num_workers=4,
+        pin_memory=True
     )
     
     # Initialize model
