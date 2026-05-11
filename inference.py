@@ -102,10 +102,11 @@ def translate_command_beam(model, sentence, input_vocab, output_vocab, device, b
         ]
         return ' '.join(output_words)    
     
-def translate_command_t5(sentence, model_path='checkpoints/t5_bash_agent', max_len=50):
-    tokenizer = T5Tokenizer.from_pretrained(model_path)
-    model = T5ForConditionalGeneration.from_pretrained(model_path)
-    model.eval()
+def translate_command_t5(sentence, model_path=None, max_len=50):
+    if model is None or tokenizer is None:
+        tokenizer = T5Tokenizer.from_pretrained(model_path)
+        model = T5ForConditionalGeneration.from_pretrained(model_path)
+        model.eval()
 
     input_text = f"translate English to bash: {sentence}"
     inputs = tokenizer(input_text, return_tensors='pt', max_length=64, truncation=True)
@@ -114,7 +115,7 @@ def translate_command_t5(sentence, model_path='checkpoints/t5_bash_agent', max_l
         outputs = model.generate(
             inputs.input_ids,
             max_length=max_len,
-            num_beams=5,          # beam search built into T5
+            num_beams=5,
             early_stopping=True
         )
 

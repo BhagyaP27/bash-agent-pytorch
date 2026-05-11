@@ -93,6 +93,7 @@ class TranslateRequest(BaseModel):
 class TranslateResponse(BaseModel):
     input: str
     command: str
+    model_used: Optional[str] = None
     debug_info: Optional[dict] = None
 
 class HealthResponse(BaseModel):
