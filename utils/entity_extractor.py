@@ -100,7 +100,7 @@ def extract_entities(sentence: str) -> tuple[str, ExtractedEntities]:
     if not entities.number:
         num_match = re.search(r'\b\d+\b', processed)
         if num_match:
-            entities.number = num_match.group(1)
+            entities.number = num_match.group(0) # used to be 1 because 1 causes issues with "show last 10 lines" → "show last <NUM> lines" but then reinjection fails because of multiple numbers in the sentence. Now we replace only the first occurrence of a number with <NUM> and leave the rest as is.
             processed = re.sub(r'\b\d+\b', '<NUM>', processed, count=1)
     return processed, entities
 
