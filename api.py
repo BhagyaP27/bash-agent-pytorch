@@ -53,6 +53,8 @@ state = ModelState()
 
 @app.on_event("startup")
 def load_model():
+
+    # lstm-based seq2seq model
     try:
         checkpoint = torch.load(MODEL_SAVE_PATH, map_location=DEVICE, weights_only=False)
         state.input_vocab = checkpoint['input_vocab']
@@ -69,6 +71,7 @@ def load_model():
         print("✅✅✅ BashAgent model loaded successfully.")
     except FileNotFoundError:
         print("⚠️⚠️⚠️  No checkpoint found. Train the model first with: python train.py")
+    
     # Load T5 model for fine-tuning approach
     try:
         from transformers import T5ForConditionalGeneration, T5Tokenizer
@@ -80,7 +83,8 @@ def load_model():
     except Exception as e:
         print(f"⚠️⚠️⚠️  Failed to load T5 model: {e}")
 
-# Request / Response schemas
+
+# Request / Response schemas------------------------------------------------------
 class TranslateRequest(BaseModel):
     text: str
     debug: Optional[bool] = False # return intermediate pipeline steps
@@ -124,23 +128,44 @@ def translate(req: TranslateRequest):
       2. Seq2Seq inference  → produce template command
       3. Entity reinjection → substitute placeholders with real values
     """
-    if not state.loaded:
-        raise HTTPException(status_code=503, detail="Model not loaded. Run train.py first.")
- 
     text = req.text.strip()
     if not text:
         raise HTTPException(status_code=400, detail="Input text cannot be empty.")
  
+    # T5 path ----------------------------------------------
+    from inference import translate_command_t5
+    if req.model_type == "t5":
+        if not state.t5_loaded:
+            raise HTTPException(
+                status_code=503,
+                detail="T5 model not loaded. Run fine_tune_t5.py first."
+            )
+        # Use pre-loaded model objects — no disk reload on every request
+        final_command = translate_command_t5(
+            text,
+            model=state.t5_model,
+            tokenizer=state.t5_tokenizer
+        )
+        return TranslateResponse(
+            input=text,
+            command=final_command,
+            model_used="t5",
+        )
+ 
+    #LSTM path ---------------------------------------------------
+    if not state.loaded:
+        raise HTTPException(
+            status_code=503,
+            detail="LSTM model not loaded. Run train.py first."
+        )
+ 
     # Step 1: Extract entities & canonicalize input
     canonical_input, entities = extract_entities(text)
  
-    # Step 2: Run model inference on canonical form
-    def model_fn(sentence: str) -> str:
-        return translate_command(
-            state.model, sentence, state.input_vocab, state.output_vocab, DEVICE
-        )
- 
-    raw_command = model_fn(canonical_input)
+    # Step 2: Run LSTM inference on canonical form
+    raw_command = translate_command(
+        state.model, canonical_input, state.input_vocab, state.output_vocab, DEVICE
+    )
  
     # Step 3: Reinject real entity values
     final_command = reinject_entities(raw_command, entities)
@@ -158,21 +183,12 @@ def translate(req: TranslateRequest):
                 "number": entities.number,
             }
         }
-    
-    if req.model_type == "t5" and state.t5_loaded:
-        from inference import translate_command_t5
-        final_command = translate_command_t5(
-            text,
-            model_path='checkpoints/t5_bash_agent'
-        )
-        return TranslateResponse(input=text, command=final_command)
-    
-    final_command = translate_command_t5(text, state.t5_model, state.t5_tokenizer)
  
     return TranslateResponse(
         input=text,
         command=final_command,
-        debug_info=debug_info
+        model_used="lstm",
+        debug_info=debug_info,
     )
 
  

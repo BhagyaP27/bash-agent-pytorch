@@ -41,7 +41,7 @@ def main():
         batch_size=BATCH_SIZE, 
         shuffle=True, 
         collate_fn=collate_fn,
-        num_workers=4,
+        num_workers=0, # used to be 4 now 0 single process, no spawn overhead
         pin_memory=True
     )
     
