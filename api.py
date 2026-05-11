@@ -43,7 +43,10 @@ class ModelState:
     model = None
     input_vocab = None
     output_vocab = None
+    t5_model = None
+    t5_tokenizer = None
     loaded = False
+    t5_loaded = False
     load_time = None
 
 state = ModelState()
@@ -66,6 +69,16 @@ def load_model():
         print("✅✅✅ BashAgent model loaded successfully.")
     except FileNotFoundError:
         print("⚠️⚠️⚠️  No checkpoint found. Train the model first with: python train.py")
+    # Load T5 model for fine-tuning approach
+    try:
+        from transformers import T5ForConditionalGeneration, T5Tokenizer
+        state.t5_tokenizer = T5Tokenizer.from_pretrained('checkpoints/t5_bash_agent')
+        state.t5_model = T5ForConditionalGeneration.from_pretrained('checkpoints/t5_bash_agent')
+        state.t5_model.eval()
+        state.t5_loaded = True
+        print("✅✅✅ T5 model loaded successfully.")
+    except Exception as e:
+        print(f"⚠️⚠️⚠️  Failed to load T5 model: {e}")
 
 # Request / Response schemas
 class TranslateRequest(BaseModel):
@@ -145,12 +158,23 @@ def translate(req: TranslateRequest):
                 "number": entities.number,
             }
         }
+    
+    if req.model_type == "t5" and state.t5_loaded:
+        from inference import translate_command_t5
+        final_command = translate_command_t5(
+            text,
+            model_path='checkpoints/t5_bash_agent'
+        )
+        return TranslateResponse(input=text, command=final_command)
+    
+    final_command = translate_command_t5(text, state.t5_model, state.t5_tokenizer)
  
     return TranslateResponse(
         input=text,
         command=final_command,
         debug_info=debug_info
     )
+
  
  
 @app.get("/examples", tags=["Info"])

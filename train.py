@@ -19,7 +19,7 @@ def main():
     # Load data
     print("\n Loading data...")
     data = load_data(DATA_PATH)
-    print(f"DEBUG: {type(data[0])} → {data[0]}")  # ← add this line
+    print(f"DEBUG: {type(data[0])} → {data[0]}")
     print(f"✓ Loaded {len(data)} training examples")
     
     # Build vocabularies

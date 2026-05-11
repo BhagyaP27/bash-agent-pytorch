@@ -15,6 +15,8 @@ const EXAMPLES = [
   'remove file data.csv',
 ];
 
+const [modelType, setModelType] = useState('t5');
+
 export default function Home() {
   const [history, setHistory] = useState([
     { type: 'welcome', text: 'BashAgent v2.0 — Seq2Seq + Entity Extraction Pipeline' },
@@ -66,7 +68,7 @@ export default function Home() {
       const res = await fetch(`${API_URL}/translate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, debug: true }),
+        body: JSON.stringify({ text, debug: true, model_type: modelType }),
       });
  
       if (!res.ok) {
