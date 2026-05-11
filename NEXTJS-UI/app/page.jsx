@@ -15,7 +15,6 @@ const EXAMPLES = [
   'remove file data.csv',
 ];
 
-const [modelType, setModelType] = useState('t5');
 
 export default function Home() {
   const [history, setHistory] = useState([
@@ -26,7 +25,7 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ connected: false, label: 'connecting...' });
- 
+ const [modelType, setModelType] = useState('t5');
   const outputRef = useRef(null);
   const inputRef = useRef(null);
  
