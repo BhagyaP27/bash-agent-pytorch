@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import torch
 import time
-from typing import Optional
+from typing import Optional, Literal
  
 from models.encoder import Encoder
 from models.decoder import Decoder
@@ -88,7 +88,7 @@ def load_model():
 class TranslateRequest(BaseModel):
     text: str
     debug: Optional[bool] = False # return intermediate pipeline steps
-    model_type: Optional[str] = "t5" # lstm or "t5"
+    model_type: Optional[Literal["lstm", "t5"]] = "t5"
 
 class TranslateResponse(BaseModel):
     input: str

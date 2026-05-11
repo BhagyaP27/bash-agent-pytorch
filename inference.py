@@ -102,8 +102,14 @@ def translate_command_beam(model, sentence, input_vocab, output_vocab, device, b
         ]
         return ' '.join(output_words)    
     
-def translate_command_t5(sentence, model_path=None, max_len=50):
+def translate_command_t5(sentence, model_path=None,tokenizer=None, model=None, max_len=50):
+    """
+    Translates using T5. Accepts pre-loaded model/tokenizer 
+    to avoid slow disk reloads on every API call.
+    """
+    # Fallback if not provided (though api.py should provide them)
     if model is None or tokenizer is None:
+        model_path = 'checkpoints/t5_bash_agent'
         tokenizer = T5Tokenizer.from_pretrained(model_path)
         model = T5ForConditionalGeneration.from_pretrained(model_path)
         model.eval()
@@ -111,9 +117,13 @@ def translate_command_t5(sentence, model_path=None, max_len=50):
     input_text = f"translate English to bash: {sentence}"
     inputs = tokenizer(input_text, return_tensors='pt', max_length=64, truncation=True)
 
+    # Move to same device as model
+    device = next(model.parameters()).device
+    input_ids = inputs.input_ids.to(device)
+
     with torch.no_grad():
         outputs = model.generate(
-            inputs.input_ids,
+            input_ids,
             max_length=max_len,
             num_beams=5,
             early_stopping=True
