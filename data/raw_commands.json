@@ -1,1112 +1,1346 @@
 [
-    {"input": "list all files", "output": "ls -la"},
-    {"input": "list files", "output": "ls -la"},
-    {"input": "show all files", "output": "ls -la"},
-    {"input": "display all files", "output": "ls -la"},
-    {"input": "show files in directory", "output": "ls -la"},
-    {"input": "list everything", "output": "ls -la"},
-    {"input": "show me all files", "output": "ls -la"},
-    {"input": "list all files and folders", "output": "ls -la"},
-    {"input": "display directory contents", "output": "ls -la"},
-    {"input": "show directory contents", "output": "ls -la"},
-    {"input": "list directory contents", "output": "ls -la"},
-    {"input": "show everything in directory", "output": "ls -la"},
-    {"input": "display all items", "output": "ls -la"},
-    {"input": "show all items", "output": "ls -la"},
-    {"input": "list all items in directory", "output": "ls -la"},
-    
-    {"input": "show current directory", "output": "pwd"},
-    {"input": "print working directory", "output": "pwd"},
-    {"input": "where am i", "output": "pwd"},
-    {"input": "current directory", "output": "pwd"},
-    {"input": "what directory am i in", "output": "pwd"},
-    {"input": "display current directory", "output": "pwd"},
-    {"input": "show current path", "output": "pwd"},
-    {"input": "print current directory", "output": "pwd"},
-    {"input": "what is my current directory", "output": "pwd"},
-    {"input": "show me current directory", "output": "pwd"},
-    {"input": "display working directory", "output": "pwd"},
-    {"input": "print current path", "output": "pwd"},
-    
-    {"input": "change to home directory", "output": "cd ~"},
-    {"input": "go to home", "output": "cd ~"},
-    {"input": "go home", "output": "cd ~"},
-    {"input": "navigate to home", "output": "cd ~"},
-    {"input": "switch to home directory", "output": "cd ~"},
-    {"input": "move to home", "output": "cd ~"},
-    {"input": "cd to home", "output": "cd ~"},
-    
-    {"input": "create a new directory called project", "output": "mkdir project"},
-    {"input": "make directory project", "output": "mkdir project"},
-    {"input": "create folder project", "output": "mkdir project"},
-    {"input": "make folder project", "output": "mkdir project"},
-    {"input": "create directory named project", "output": "mkdir project"},
-    {"input": "make new directory project", "output": "mkdir project"},
-    {"input": "create new folder project", "output": "mkdir project"},
-    {"input": "make new folder project", "output": "mkdir project"},
-    
-    {"input": "create directory test", "output": "mkdir test"},
-    {"input": "make folder test", "output": "mkdir test"},
-    {"input": "create folder test", "output": "mkdir test"},
-    {"input": "make directory test", "output": "mkdir test"},
-    {"input": "create new directory test", "output": "mkdir test"},
-    
-    {"input": "create directory docs", "output": "mkdir docs"},
-    {"input": "make folder docs", "output": "mkdir docs"},
-    {"input": "create folder docs", "output": "mkdir docs"},
-    {"input": "make directory docs", "output": "mkdir docs"},
-    
-    {"input": "create directory src", "output": "mkdir src"},
-    {"input": "make folder src", "output": "mkdir src"},
-    {"input": "create folder src", "output": "mkdir src"},
-    
-    {"input": "create directory build", "output": "mkdir build"},
-    {"input": "make folder build", "output": "mkdir build"},
-    {"input": "create folder build", "output": "mkdir build"},
-    
-    {"input": "create directory data", "output": "mkdir data"},
-    {"input": "make folder data", "output": "mkdir data"},
-    {"input": "create folder data", "output": "mkdir data"},
-    {"input": "make directory data", "output": "mkdir data"},
-    
-    {"input": "create directory backup", "output": "mkdir backup"},
-    {"input": "make folder backup", "output": "mkdir backup"},
-    {"input": "create folder backup", "output": "mkdir backup"},
-    {"input": "make directory backup", "output": "mkdir backup"},
-    
-    {"input": "create directory images", "output": "mkdir images"},
-    {"input": "make folder images", "output": "mkdir images"},
-    {"input": "create folder images", "output": "mkdir images"},
-    
-    {"input": "create directory documents", "output": "mkdir documents"},
-    {"input": "make folder documents", "output": "mkdir documents"},
-    {"input": "create folder documents", "output": "mkdir documents"},
-    
-    {"input": "create directory temp", "output": "mkdir temp"},
-    {"input": "make folder temp", "output": "mkdir temp"},
-    
-    {"input": "create directory config", "output": "mkdir config"},
-    {"input": "make folder config", "output": "mkdir config"},
-    
-    {"input": "create directory logs", "output": "mkdir logs"},
-    {"input": "make folder logs", "output": "mkdir logs"},
-    
-    {"input": "create directory archive", "output": "mkdir archive"},
-    {"input": "make folder archive", "output": "mkdir archive"},
-    
-    {"input": "create directory cache", "output": "mkdir cache"},
-    {"input": "make folder cache", "output": "mkdir cache"},
-    
-    {"input": "create directory downloads", "output": "mkdir downloads"},
-    {"input": "make folder downloads", "output": "mkdir downloads"},
-    
-    {"input": "create directory uploads", "output": "mkdir uploads"},
-    {"input": "make folder uploads", "output": "mkdir uploads"},
-    
-    {"input": "remove file test.txt", "output": "rm test.txt"},
-    {"input": "delete file test.txt", "output": "rm test.txt"},
-    {"input": "remove test.txt", "output": "rm test.txt"},
-    {"input": "delete test.txt", "output": "rm test.txt"},
-    {"input": "erase file test.txt", "output": "rm test.txt"},
-    {"input": "erase test.txt", "output": "rm test.txt"},
-    
-    {"input": "remove file data.csv", "output": "rm data.csv"},
-    {"input": "delete file data.csv", "output": "rm data.csv"},
-    {"input": "remove data.csv", "output": "rm data.csv"},
-    {"input": "delete data.csv", "output": "rm data.csv"},
-    
-    {"input": "remove file config.json", "output": "rm config.json"},
-    {"input": "delete file config.json", "output": "rm config.json"},
-    {"input": "remove config.json", "output": "rm config.json"},
-    {"input": "delete config.json", "output": "rm config.json"},
-    
-    {"input": "remove file main.py", "output": "rm main.py"},
-    {"input": "delete file main.py", "output": "rm main.py"},
-    {"input": "remove main.py", "output": "rm main.py"},
-    {"input": "delete main.py", "output": "rm main.py"},
-    
-    {"input": "remove file index.html", "output": "rm index.html"},
-    {"input": "delete file index.html", "output": "rm index.html"},
-    {"input": "remove index.html", "output": "rm index.html"},
-    {"input": "delete index.html", "output": "rm index.html"},
-    
-    {"input": "remove file readme.md", "output": "rm readme.md"},
-    {"input": "delete file readme.md", "output": "rm readme.md"},
-    {"input": "remove readme.md", "output": "rm readme.md"},
-    
-    {"input": "remove file script.js", "output": "rm script.js"},
-    {"input": "delete file script.js", "output": "rm script.js"},
-    {"input": "remove script.js", "output": "rm script.js"},
-    
-    {"input": "remove file app.py", "output": "rm app.py"},
-    {"input": "delete file app.py", "output": "rm app.py"},
-    {"input": "remove app.py", "output": "rm app.py"},
-    
-    {"input": "remove file package.json", "output": "rm package.json"},
-    {"input": "delete file package.json", "output": "rm package.json"},
-    
-    {"input": "remove file requirements.txt", "output": "rm requirements.txt"},
-    {"input": "delete file requirements.txt", "output": "rm requirements.txt"},
-    
-    {"input": "copy file1.txt to file2.txt", "output": "cp file1.txt file2.txt"},
-    {"input": "duplicate file1.txt as file2.txt", "output": "cp file1.txt file2.txt"},
-    {"input": "make copy of file1.txt to file2.txt", "output": "cp file1.txt file2.txt"},
-    {"input": "copy file1.txt file2.txt", "output": "cp file1.txt file2.txt"},
-    
-    {"input": "copy data.txt to backup.txt", "output": "cp data.txt backup.txt"},
-    {"input": "duplicate data.txt as backup.txt", "output": "cp data.txt backup.txt"},
-    {"input": "copy data.txt backup.txt", "output": "cp data.txt backup.txt"},
-    
-    {"input": "copy main.py to backup.py", "output": "cp main.py backup.py"},
-    {"input": "duplicate main.py as backup.py", "output": "cp main.py backup.py"},
-    {"input": "copy main.py backup.py", "output": "cp main.py backup.py"},
-    
-    {"input": "copy index.html to backup.html", "output": "cp index.html backup.html"},
-    {"input": "duplicate index.html as backup.html", "output": "cp index.html backup.html"},
-    
-    {"input": "copy config.json to config.backup.json", "output": "cp config.json config.backup.json"},
-    {"input": "duplicate config.json as config.backup.json", "output": "cp config.json config.backup.json"},
-    
-    {"input": "copy app.js to app.backup.js", "output": "cp app.js app.backup.js"},
-    {"input": "duplicate app.js as app.backup.js", "output": "cp app.js app.backup.js"},
-    
-    {"input": "move data.csv to backup folder", "output": "mv data.csv backup/"},
-    {"input": "move data.csv to backup", "output": "mv data.csv backup/"},
-    {"input": "transfer data.csv to backup folder", "output": "mv data.csv backup/"},
-    {"input": "transfer data.csv to backup", "output": "mv data.csv backup/"},
-    
-    {"input": "move file.txt to archive folder", "output": "mv file.txt archive/"},
-    {"input": "move file.txt to archive", "output": "mv file.txt archive/"},
-    {"input": "transfer file.txt to archive", "output": "mv file.txt archive/"},
-    
-    {"input": "move logs.txt to archive", "output": "mv logs.txt archive/"},
-    {"input": "move logs.txt to archive folder", "output": "mv logs.txt archive/"},
-    {"input": "transfer logs.txt to archive", "output": "mv logs.txt archive/"},
-    
-    {"input": "move report.pdf to documents", "output": "mv report.pdf documents/"},
-    {"input": "move report.pdf to documents folder", "output": "mv report.pdf documents/"},
-    {"input": "transfer report.pdf to documents", "output": "mv report.pdf documents/"},
-    
-    {"input": "move image.png to images", "output": "mv image.png images/"},
-    {"input": "move image.png to images folder", "output": "mv image.png images/"},
-    
-    {"input": "find all python files", "output": "find . -name '*.py'"},
-    {"input": "search for python files", "output": "find . -name '*.py'"},
-    {"input": "find python files", "output": "find . -name '*.py'"},
-    {"input": "locate python files", "output": "find . -name '*.py'"},
-    {"input": "search for py files", "output": "find . -name '*.py'"},
-    {"input": "find all py files", "output": "find . -name '*.py'"},
-    {"input": "look for python files", "output": "find . -name '*.py'"},
-    {"input": "locate py files", "output": "find . -name '*.py'"},
-    
-    {"input": "find all javascript files", "output": "find . -name '*.js'"},
-    {"input": "search for javascript files", "output": "find . -name '*.js'"},
-    {"input": "find js files", "output": "find . -name '*.js'"},
-    {"input": "locate javascript files", "output": "find . -name '*.js'"},
-    {"input": "find all js files", "output": "find . -name '*.js'"},
-    {"input": "search for js files", "output": "find . -name '*.js'"},
-    
-    {"input": "find all text files", "output": "find . -name '*.txt'"},
-    {"input": "search for text files", "output": "find . -name '*.txt'"},
-    {"input": "find txt files", "output": "find . -name '*.txt'"},
-    {"input": "locate text files", "output": "find . -name '*.txt'"},
-    {"input": "find all txt files", "output": "find . -name '*.txt'"},
-    
-    {"input": "find all json files", "output": "find . -name '*.json'"},
-    {"input": "search for json files", "output": "find . -name '*.json'"},
-    {"input": "locate json files", "output": "find . -name '*.json'"},
-    {"input": "find json files", "output": "find . -name '*.json'"},
-    
-    {"input": "find all c files", "output": "find . -name '*.c'"},
-    {"input": "search for c files", "output": "find . -name '*.c'"},
-    {"input": "find c files", "output": "find . -name '*.c'"},
-    {"input": "locate c files", "output": "find . -name '*.c'"},
-    {"input": "find all c source files", "output": "find . -name '*.c'"},
-    
-    {"input": "find all cpp files", "output": "find . -name '*.cpp'"},
-    {"input": "search for cpp files", "output": "find . -name '*.cpp'"},
-    {"input": "find cpp files", "output": "find . -name '*.cpp'"},
-    {"input": "locate cpp files", "output": "find . -name '*.cpp'"},
-    {"input": "find all c plus plus files", "output": "find . -name '*.cpp'"},
-    
-    {"input": "find all java files", "output": "find . -name '*.java'"},
-    {"input": "search for java files", "output": "find . -name '*.java'"},
-    {"input": "find java files", "output": "find . -name '*.java'"},
-    {"input": "locate java files", "output": "find . -name '*.java'"},
-    
-    {"input": "find all html files", "output": "find . -name '*.html'"},
-    {"input": "search for html files", "output": "find . -name '*.html'"},
-    {"input": "find html files", "output": "find . -name '*.html'"},
-    {"input": "locate html files", "output": "find . -name '*.html'"},
-    
-    {"input": "find all css files", "output": "find . -name '*.css'"},
-    {"input": "search for css files", "output": "find . -name '*.css'"},
-    {"input": "find css files", "output": "find . -name '*.css'"},
-    {"input": "locate css files", "output": "find . -name '*.css'"},
-    
-    {"input": "find all markdown files", "output": "find . -name '*.md'"},
-    {"input": "search for markdown files", "output": "find . -name '*.md'"},
-    {"input": "find md files", "output": "find . -name '*.md'"},
-    {"input": "locate markdown files", "output": "find . -name '*.md'"},
-    
-    {"input": "find all xml files", "output": "find . -name '*.xml'"},
-    {"input": "find xml files", "output": "find . -name '*.xml'"},
-    {"input": "search for xml files", "output": "find . -name '*.xml'"},
-    
-    {"input": "find all yaml files", "output": "find . -name '*.yaml'"},
-    {"input": "find yaml files", "output": "find . -name '*.yaml'"},
-    {"input": "search for yaml files", "output": "find . -name '*.yaml'"},
-    
-    {"input": "find all shell scripts", "output": "find . -name '*.sh'"},
-    {"input": "find sh files", "output": "find . -name '*.sh'"},
-    {"input": "search for shell scripts", "output": "find . -name '*.sh'"},
-    
-    {"input": "find all php files", "output": "find . -name '*.php'"},
-    {"input": "find php files", "output": "find . -name '*.php'"},
-    {"input": "search for php files", "output": "find . -name '*.php'"},
-    
-    {"input": "find all ruby files", "output": "find . -name '*.rb'"},
-    {"input": "find ruby files", "output": "find . -name '*.rb'"},
-    {"input": "search for ruby files", "output": "find . -name '*.rb'"},
-    
-    {"input": "find all go files", "output": "find . -name '*.go'"},
-    {"input": "find go files", "output": "find . -name '*.go'"},
-    {"input": "search for go files", "output": "find . -name '*.go'"},
-    
-    {"input": "find all rust files", "output": "find . -name '*.rs'"},
-    {"input": "find rust files", "output": "find . -name '*.rs'"},
-    {"input": "search for rust files", "output": "find . -name '*.rs'"},
-    
-    {"input": "find all typescript files", "output": "find . -name '*.ts'"},
-    {"input": "find typescript files", "output": "find . -name '*.ts'"},
-    {"input": "search for typescript files", "output": "find . -name '*.ts'"},
-    
-    {"input": "show disk usage", "output": "df -h"},
-    {"input": "display disk usage", "output": "df -h"},
-    {"input": "check disk usage", "output": "df -h"},
-    {"input": "show disk space", "output": "df -h"},
-    {"input": "display disk space", "output": "df -h"},
-    {"input": "check available disk space", "output": "df -h"},
-    {"input": "show available storage", "output": "df -h"},
-    {"input": "display available storage", "output": "df -h"},
-    {"input": "check storage space", "output": "df -h"},
-    
-    {"input": "display file contents", "output": "cat filename"},
-    {"input": "show file content", "output": "cat filename"},
-    {"input": "read file", "output": "cat filename"},
-    {"input": "print file contents", "output": "cat filename"},
-    {"input": "show file", "output": "cat filename"},
-    {"input": "display file", "output": "cat filename"},
-    {"input": "view file contents", "output": "cat filename"},
-    {"input": "view file", "output": "cat filename"},
-    {"input": "read file contents", "output": "cat filename"},
-    
-    {"input": "search for text in files", "output": "grep 'pattern' file"},
-    {"input": "find text pattern in file", "output": "grep 'pattern' file"},
-    {"input": "search for pattern in file", "output": "grep 'pattern' file"},
-    {"input": "grep pattern in file", "output": "grep 'pattern' file"},
-    {"input": "find text in file", "output": "grep 'pattern' file"},
-    {"input": "search text in file", "output": "grep 'pattern' file"},
-    {"input": "search for string in file", "output": "grep 'pattern' file"},
-    {"input": "find string in file", "output": "grep 'pattern' file"},
-    
-    {"input": "show running processes", "output": "ps aux"},
-    {"input": "list processes", "output": "ps aux"},
-    {"input": "display processes", "output": "ps aux"},
-    {"input": "show all processes", "output": "ps aux"},
-    {"input": "list all processes", "output": "ps aux"},
-    {"input": "display running processes", "output": "ps aux"},
-    {"input": "show active processes", "output": "ps aux"},
-    {"input": "list active processes", "output": "ps aux"},
-    {"input": "display all processes", "output": "ps aux"},
-    {"input": "show process list", "output": "ps aux"},
-    
-    {"input": "download file from url", "output": "wget url"},
-    {"input": "fetch file from web", "output": "wget url"},
-    {"input": "download from url", "output": "wget url"},
-    {"input": "get file from url", "output": "wget url"},
-    {"input": "download file", "output": "wget url"},
-    {"input": "fetch from url", "output": "wget url"},
-    {"input": "get file from web", "output": "wget url"},
-    {"input": "download from web", "output": "wget url"},
-    
-    {"input": "compress folder", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "create archive of directory", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "compress directory", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "archive folder", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "create archive of folder", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "make archive of directory", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "zip folder", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "create compressed archive", "output": "tar -czf archive.tar.gz folder/"},
-    
-    {"input": "compress folder data", "output": "tar -czf archive.tar.gz data/"},
-    {"input": "compress directory data", "output": "tar -czf archive.tar.gz data/"},
-    {"input": "archive folder data", "output": "tar -czf archive.tar.gz data/"},
-    {"input": "create archive of data", "output": "tar -czf archive.tar.gz data/"},
-    
-    {"input": "compress folder backup", "output": "tar -czf archive.tar.gz backup/"},
-    {"input": "compress directory backup", "output": "tar -czf archive.tar.gz backup/"},
-    {"input": "archive folder backup", "output": "tar -czf archive.tar.gz backup/"},
-    
-    {"input": "compress folder images", "output": "tar -czf archive.tar.gz images/"},
-    {"input": "compress directory images", "output": "tar -czf archive.tar.gz images/"},
-    {"input": "archive folder images", "output": "tar -czf archive.tar.gz images/"},
-    
-    {"input": "compress folder documents", "output": "tar -czf archive.tar.gz documents/"},
-    {"input": "compress directory documents", "output": "tar -czf archive.tar.gz documents/"},
-    {"input": "archive folder documents", "output": "tar -czf archive.tar.gz documents/"},
-    
-    {"input": "compress folder src", "output": "tar -czf archive.tar.gz src/"},
-    {"input": "compress directory src", "output": "tar -czf archive.tar.gz src/"},
-    
-    {"input": "compress folder projects", "output": "tar -czf archive.tar.gz projects/"},
-    {"input": "compress directory projects", "output": "tar -czf archive.tar.gz projects/"},
-    
-    {"input": "compress folder config", "output": "tar -czf archive.tar.gz config/"},
-    {"input": "compress directory config", "output": "tar -czf archive.tar.gz config/"},
-    
-    {"input": "compress folder logs", "output": "tar -czf archive.tar.gz logs/"},
-    {"input": "compress directory logs", "output": "tar -czf archive.tar.gz logs/"},
-    
-    {"input": "extract archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unpack compressed file", "output": "tar -xzf archive.tar.gz"},
-    {"input": "decompress archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "extract compressed file", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unpack archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "extract tar file", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unzip archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "decompress tar file", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unpack tar file", "output": "tar -xzf archive.tar.gz"},
-    
-    {"input": "show network connections", "output": "netstat -tuln"},
-    {"input": "display active connections", "output": "netstat -tuln"},
-    {"input": "list network connections", "output": "netstat -tuln"},
-    {"input": "show active connections", "output": "netstat -tuln"},
-    {"input": "display network connections", "output": "netstat -tuln"},
-    {"input": "list active connections", "output": "netstat -tuln"},
-    {"input": "show open ports", "output": "netstat -tuln"},
-    {"input": "list open ports", "output": "netstat -tuln"},
-    
-    {"input": "check system information", "output": "uname -a"},
-    {"input": "show system details", "output": "uname -a"},
-    {"input": "display system information", "output": "uname -a"},
-    {"input": "show system info", "output": "uname -a"},
-    {"input": "get system information", "output": "uname -a"},
-    {"input": "display system details", "output": "uname -a"},
-    {"input": "show operating system info", "output": "uname -a"},
-    {"input": "display os information", "output": "uname -a"},
-    
-    {"input": "count lines in file", "output": "wc -l file.txt"},
-    {"input": "count lines", "output": "wc -l file.txt"},
-    {"input": "number of lines in file", "output": "wc -l file.txt"},
-    {"input": "how many lines in file", "output": "wc -l file.txt"},
-    {"input": "count file lines", "output": "wc -l file.txt"},
-    
-    {"input": "sort file contents", "output": "sort file.txt"},
-    {"input": "sort file", "output": "sort file.txt"},
-    {"input": "sort lines in file", "output": "sort file.txt"},
-    {"input": "alphabetically sort file", "output": "sort file.txt"},
-    {"input": "sort file alphabetically", "output": "sort file.txt"},
-    
-    {"input": "show last 10 lines", "output": "tail -n 10 file.txt"},
-    {"input": "display end of file", "output": "tail -n 10 file.txt"},
-    {"input": "show end of file", "output": "tail -n 10 file.txt"},
-    {"input": "display last 10 lines", "output": "tail -n 10 file.txt"},
-    {"input": "print last 10 lines", "output": "tail -n 10 file.txt"},
-    {"input": "show tail of file", "output": "tail -n 10 file.txt"},
-    {"input": "display tail of file", "output": "tail -n 10 file.txt"},
-    
-    {"input": "show first 5 lines", "output": "head -n 5 file.txt"},
-    {"input": "display first 5 lines", "output": "head -n 5 file.txt"},
-    {"input": "show beginning of file", "output": "head -n 5 file.txt"},
-    {"input": "display start of file", "output": "head -n 5 file.txt"},
-    {"input": "print first 5 lines", "output": "head -n 5 file.txt"},
-    {"input": "show head of file", "output": "head -n 5 file.txt"},
-    {"input": "display head of file", "output": "head -n 5 file.txt"},
-    
-    {"input": "create empty file", "output": "touch newfile.txt"},
-    {"input": "make new file", "output": "touch newfile.txt"},
-    {"input": "create file", "output": "touch newfile.txt"},
-    {"input": "make empty file", "output": "touch newfile.txt"},
-    {"input": "create new file", "output": "touch newfile.txt"},
-    {"input": "make file", "output": "touch newfile.txt"},
-    
-    {"input": "show environment variables", "output": "env"},
-    {"input": "display env vars", "output": "env"},
-    {"input": "list environment variables", "output": "env"},
-    {"input": "print environment variables", "output": "env"},
-    {"input": "show env variables", "output": "env"},
-    {"input": "display environment variables", "output": "env"},
-    {"input": "list env vars", "output": "env"},
-    {"input": "print env vars", "output": "env"},
-    
-    {"input": "find files modified today", "output": "find . -mtime 0"},
-    {"input": "search recently changed files", "output": "find . -mtime 0"},
-    {"input": "find recently modified files", "output": "find . -mtime 0"},
-    {"input": "locate files modified today", "output": "find . -mtime 0"},
-    {"input": "search for recent files", "output": "find . -mtime 0"},
-    {"input": "find recent files", "output": "find . -mtime 0"},
-    {"input": "search for recently modified files", "output": "find . -mtime 0"},
-    
-    {"input": "show disk space", "output": "du -sh *"},
-    {"input": "check folder sizes", "output": "du -sh *"},
-    {"input": "display directory sizes", "output": "du -sh *"},
-    {"input": "show directory sizes", "output": "du -sh *"},
-    {"input": "check disk space usage", "output": "du -sh *"},
-    {"input": "show folder sizes", "output": "du -sh *"},
-    
-    {"input": "ping google", "output": "ping google.com"},
-    {"input": "test connection to server", "output": "ping google.com"},
-    {"input": "ping server", "output": "ping google.com"},
-    {"input": "check connectivity", "output": "ping google.com"},
-    {"input": "test internet connection", "output": "ping google.com"},
-    {"input": "check internet connection", "output": "ping google.com"},
-    {"input": "test network connection", "output": "ping google.com"},
-    
-    {"input": "show current user", "output": "whoami"},
-    {"input": "display current user", "output": "whoami"},
-    {"input": "print current user", "output": "whoami"},
-    {"input": "who am i", "output": "whoami"},
-    {"input": "show username", "output": "whoami"},
-    {"input": "display username", "output": "whoami"},
-    {"input": "print username", "output": "whoami"},
-    {"input": "get current user", "output": "whoami"},
-    {"input": "show my username", "output": "whoami"},
-    {"input": "what is my username", "output": "whoami"},
-    
-    {"input": "clear screen", "output": "clear"},
-    {"input": "clear terminal", "output": "clear"},
-    {"input": "clear console", "output": "clear"},
-    {"input": "clean screen", "output": "clear"},
-    {"input": "clear display", "output": "clear"},
-    {"input": "clean terminal", "output": "clear"},
-    
-    {"input": "show command history", "output": "history"},
-    {"input": "display command history", "output": "history"},
-    {"input": "list command history", "output": "history"},
-    {"input": "show history", "output": "history"},
-    {"input": "print history", "output": "history"},
-    {"input": "display history", "output": "history"},
-    {"input": "list history", "output": "history"},
-    {"input": "show previous commands", "output": "history"},
-    
-    {"input": "change permissions", "output": "chmod 755 file"},
-    {"input": "modify file permissions", "output": "chmod 755 file"},
-    {"input": "set file permissions", "output": "chmod 755 file"},
-    {"input": "change file permissions", "output": "chmod 755 file"},
-    
-    {"input": "make file executable", "output": "chmod +x file"},
-    {"input": "add execute permission", "output": "chmod +x file"},
-    {"input": "set executable permission", "output": "chmod +x file"},
-    {"input": "give execute permission", "output": "chmod +x file"},
-    
-    {"input": "show calendar", "output": "cal"},
-    {"input": "display calendar", "output": "cal"},
-    {"input": "print calendar", "output": "cal"},
-    {"input": "show current month", "output": "cal"},
-    {"input": "display current month", "output": "cal"},
-    
-    {"input": "show date", "output": "date"},
-    {"input": "display date", "output": "date"},
-    {"input": "print date", "output": "date"},
-    {"input": "current date", "output": "date"},
-    {"input": "show current date", "output": "date"},
-    {"input": "display current date", "output": "date"},
-    {"input": "what is the date", "output": "date"},
-    {"input": "show time", "output": "date"},
-    {"input": "display time", "output": "date"},
-    
-    {"input": "echo hello", "output": "echo hello"},
-    {"input": "print hello", "output": "echo hello"},
-    {"input": "display hello", "output": "echo hello"},
-    
-    {"input": "show system uptime", "output": "uptime"},
-    {"input": "display uptime", "output": "uptime"},
-    {"input": "how long system running", "output": "uptime"},
-    {"input": "check uptime", "output": "uptime"},
-    {"input": "show how long system has been running", "output": "uptime"},
-    {"input": "display system uptime", "output": "uptime"},
-    
-    {"input": "remove directory temp", "output": "rm -r temp"},
-    {"input": "delete folder temp", "output": "rm -r temp"},
-    {"input": "delete directory temp", "output": "rm -r temp"},
-    {"input": "remove folder temp", "output": "rm -r temp"},
-    
-    {"input": "remove directory build", "output": "rm -r build"},
-    {"input": "delete folder build", "output": "rm -r build"},
-    {"input": "delete directory build", "output": "rm -r build"},
-    
-    {"input": "remove directory cache", "output": "rm -r cache"},
-    {"input": "delete folder cache", "output": "rm -r cache"},
-    {"input": "delete directory cache", "output": "rm -r cache"},
-    
-    {"input": "remove directory logs", "output": "rm -r logs"},
-    {"input": "delete folder logs", "output": "rm -r logs"},
-    
-    {"input": "show free memory", "output": "free -h"},
-    {"input": "display memory usage", "output": "free -h"},
-    {"input": "check memory usage", "output": "free -h"},
-    {"input": "show memory usage", "output": "free -h"},
-    {"input": "display free memory", "output": "free -h"},
-    {"input": "check free memory", "output": "free -h"},
-    
-    {"input": "show cpu info", "output": "lscpu"},
-    {"input": "display cpu information", "output": "lscpu"},
-    {"input": "show processor info", "output": "lscpu"},
-    {"input": "display processor information", "output": "lscpu"},
-    {"input": "get cpu info", "output": "lscpu"},
-    
-    {"input": "show ip address", "output": "ip addr"},
-    {"input": "display ip address", "output": "ip addr"},
-    {"input": "show network interfaces", "output": "ip addr"},
-    {"input": "display network interfaces", "output": "ip addr"},
-    {"input": "show my ip", "output": "ip addr"},
-    {"input": "what is my ip", "output": "ip addr"},
-    
-    {"input": "kill process", "output": "kill pid"},
-    {"input": "terminate process", "output": "kill pid"},
-    {"input": "stop process", "output": "kill pid"},
-    {"input": "end process", "output": "kill pid"},
-    
-    {"input": "create symbolic link", "output": "ln -s target link"},
-    {"input": "make symlink", "output": "ln -s target link"},
-    {"input": "create soft link", "output": "ln -s target link"},
-    {"input": "make symbolic link", "output": "ln -s target link"},
-    
-    {"input": "show file size", "output": "ls -lh file"},
-    {"input": "display file size", "output": "ls -lh file"},
-    {"input": "get file size", "output": "ls -lh file"},
-    {"input": "check file size", "output": "ls -lh file"},
-    
-    {"input": "compare two files", "output": "diff file1 file2"},
-    {"input": "show difference between files", "output": "diff file1 file2"},
-    {"input": "check difference between files", "output": "diff file1 file2"},
-    {"input": "diff two files", "output": "diff file1 file2"},
-    
-    {"input": "find duplicate files", "output": "fdupes ."},
-    {"input": "search for duplicate files", "output": "fdupes ."},
-    {"input": "locate duplicate files", "output": "fdupes ."},
-    
-    {"input": "show mounted filesystems", "output": "mount"},
-    {"input": "display mounted filesystems", "output": "mount"},
-    {"input": "list mounted filesystems", "output": "mount"},
-    {"input": "show mount points", "output": "mount"},
-    
-    {"input": "reboot system", "output": "reboot"},
-    {"input": "restart system", "output": "reboot"},
-    {"input": "restart computer", "output": "reboot"},
-    {"input": "reboot computer", "output": "reboot"},
-    
-    {"input": "shutdown system", "output": "shutdown -h now"},
-    {"input": "power off system", "output": "shutdown -h now"},
-    {"input": "turn off computer", "output": "shutdown -h now"},
-    {"input": "shutdown computer", "output": "shutdown -h now"},
-    
-    {"input": "search command history", "output": "history | grep pattern"},
-    {"input": "find in command history", "output": "history | grep pattern"},
-    {"input": "search previous commands", "output": "history | grep pattern"},
-    
-    {"input": "count files in directory", "output": "ls | wc -l"},
-    {"input": "how many files in directory", "output": "ls | wc -l"},
-    {"input": "number of files in directory", "output": "ls | wc -l"},
-    
-    {"input": "show largest files", "output": "du -ah . | sort -rh | head -n 10"},
-    {"input": "find largest files", "output": "du -ah . | sort -rh | head -n 10"},
-    {"input": "list largest files", "output": "du -ah . | sort -rh | head -n 10"},
-    
-    {"input": "show hidden files", "output": "ls -la"},
-    {"input": "display hidden files", "output": "ls -la"},
-    {"input": "list hidden files", "output": "ls -la"},
-    {"input": "show all hidden files", "output": "ls -la"},
-    
-    {"input": "create tar archive", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "make tar archive", "output": "tar -czf archive.tar.gz folder/"},
-    {"input": "create compressed tar", "output": "tar -czf archive.tar.gz folder/"},
-    
-    {"input": "extract tar archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unpack tar archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "decompress tar archive", "output": "tar -xzf archive.tar.gz"},
-    
-    {"input": "find empty directories", "output": "find . -type d -empty"},
-    {"input": "search for empty folders", "output": "find . -type d -empty"},
-    {"input": "locate empty directories", "output": "find . -type d -empty"},
-    
-    {"input": "find empty files", "output": "find . -type f -empty"},
-    {"input": "search for empty files", "output": "find . -type f -empty"},
-    {"input": "locate empty files", "output": "find . -type f -empty"},
-    
-    {"input": "show file permissions", "output": "ls -l file"},
-    {"input": "display file permissions", "output": "ls -l file"},
-    {"input": "check file permissions", "output": "ls -l file"},
-    {"input": "show file access rights", "output": "ls -l file"},
-    
-    {"input": "change file owner", "output": "chown user file"},
-    {"input": "modify file owner", "output": "chown user file"},
-    {"input": "set file owner", "output": "chown user file"},
-    
-    {"input": "change group", "output": "chgrp group file"},
-    {"input": "modify file group", "output": "chgrp group file"},
-    {"input": "set file group", "output": "chgrp group file"},
-    
-    {"input": "show disk partitions", "output": "fdisk -l"},
-    {"input": "display disk partitions", "output": "fdisk -l"},
-    {"input": "list disk partitions", "output": "fdisk -l"},
-    
-    {"input": "show block devices", "output": "lsblk"},
-    {"input": "display block devices", "output": "lsblk"},
-    {"input": "list block devices", "output": "lsblk"},
-    
-    {"input": "show usb devices", "output": "lsusb"},
-    {"input": "display usb devices", "output": "lsusb"},
-    {"input": "list usb devices", "output": "lsusb"},
-    
-    {"input": "show pci devices", "output": "lspci"},
-    {"input": "display pci devices", "output": "lspci"},
-    {"input": "list pci devices", "output": "lspci"},
-    
-    {"input": "monitor system resources", "output": "top"},
-    {"input": "show system monitor", "output": "top"},
-    {"input": "display system resources", "output": "top"},
-    {"input": "show resource usage", "output": "top"},
-    
-    {"input": "show system logs", "output": "journalctl"},
-    {"input": "display system logs", "output": "journalctl"},
-    {"input": "view system logs", "output": "journalctl"},
-    {"input": "check system logs", "output": "journalctl"},
-    
-    {"input": "show services", "output": "systemctl list-units"},
-    {"input": "list services", "output": "systemctl list-units"},
-    {"input": "display services", "output": "systemctl list-units"},
-    
-    {"input": "start service", "output": "systemctl start service"},
-    {"input": "run service", "output": "systemctl start service"},
-    {"input": "launch service", "output": "systemctl start service"},
-    
-    {"input": "stop service", "output": "systemctl stop service"},
-    {"input": "halt service", "output": "systemctl stop service"},
-    {"input": "terminate service", "output": "systemctl stop service"},
-    
-    {"input": "restart service", "output": "systemctl restart service"},
-    {"input": "reboot service", "output": "systemctl restart service"},
-    {"input": "reload service", "output": "systemctl restart service"},
-    
-    {"input": "enable service", "output": "systemctl enable service"},
-    {"input": "activate service", "output": "systemctl enable service"},
-    
-    {"input": "disable service", "output": "systemctl disable service"},
-    {"input": "deactivate service", "output": "systemctl disable service"},
-    
-    {"input": "show service status", "output": "systemctl status service"},
-    {"input": "check service status", "output": "systemctl status service"},
-    {"input": "display service status", "output": "systemctl status service"},
-    
-    {"input": "update package list", "output": "apt update"},
-    {"input": "refresh package list", "output": "apt update"},
-    {"input": "update repositories", "output": "apt update"},
-    
-    {"input": "upgrade packages", "output": "apt upgrade"},
-    {"input": "update all packages", "output": "apt upgrade"},
-    {"input": "upgrade system", "output": "apt upgrade"},
-    
-    {"input": "install package", "output": "apt install package"},
-    {"input": "install software", "output": "apt install package"},
-    {"input": "add package", "output": "apt install package"},
-    
-    {"input": "remove package", "output": "apt remove package"},
-    {"input": "uninstall package", "output": "apt remove package"},
-    {"input": "delete package", "output": "apt remove package"},
-    
-    {"input": "search for package", "output": "apt search package"},
-    {"input": "find package", "output": "apt search package"},
-    {"input": "search package", "output": "apt search package"},
-    
-    {"input": "show package info", "output": "apt show package"},
-    {"input": "display package information", "output": "apt show package"},
-    {"input": "get package info", "output": "apt show package"},
-    
-    {"input": "show kernel version", "output": "uname -r"},
-    {"input": "display kernel version", "output": "uname -r"},
-    {"input": "print kernel version", "output": "uname -r"},
-    {"input": "check kernel version", "output": "uname -r"},
-    
-    {"input": "show hostname", "output": "hostname"},
-    {"input": "display hostname", "output": "hostname"},
-    {"input": "print hostname", "output": "hostname"},
-    {"input": "get hostname", "output": "hostname"},
-    {"input": "what is hostname", "output": "hostname"},
-    
-    {"input": "set hostname", "output": "hostnamectl set-hostname name"},
-    {"input": "change hostname", "output": "hostnamectl set-hostname name"},
-    {"input": "modify hostname", "output": "hostnamectl set-hostname name"},
-    
-    {"input": "show login history", "output": "last"},
-    {"input": "display login history", "output": "last"},
-    {"input": "show user logins", "output": "last"},
-    {"input": "list login history", "output": "last"},
-    
-    {"input": "show logged in users", "output": "w"},
-    {"input": "display logged in users", "output": "w"},
-    {"input": "list logged in users", "output": "w"},
-    {"input": "show active users", "output": "w"},
-    
-    {"input": "add user", "output": "useradd username"},
-    {"input": "create user", "output": "useradd username"},
-    {"input": "create new user", "output": "useradd username"},
-    
-    {"input": "delete user", "output": "userdel username"},
-    {"input": "remove user", "output": "userdel username"},
-    
-    {"input": "change password", "output": "passwd"},
-    {"input": "set password", "output": "passwd"},
-    {"input": "modify password", "output": "passwd"},
-    {"input": "update password", "output": "passwd"},
-    
-    {"input": "show groups", "output": "groups"},
-    {"input": "display groups", "output": "groups"},
-    {"input": "list groups", "output": "groups"},
-    {"input": "show user groups", "output": "groups"},
-    
-    {"input": "add user to group", "output": "usermod -aG group user"},
-    {"input": "add user to group", "output": "usermod -aG group user"},
-    
-    {"input": "show open files", "output": "lsof"},
-    {"input": "list open files", "output": "lsof"},
-    {"input": "display open files", "output": "lsof"},
-    
-    {"input": "show listening ports", "output": "netstat -tuln"},
-    {"input": "display listening ports", "output": "netstat -tuln"},
-    {"input": "list listening ports", "output": "netstat -tuln"},
-    
-    {"input": "trace route", "output": "traceroute host"},
-    {"input": "trace network path", "output": "traceroute host"},
-    {"input": "show route to host", "output": "traceroute host"},
-    
-    {"input": "lookup dns", "output": "nslookup domain"},
-    {"input": "query dns", "output": "nslookup domain"},
-    {"input": "resolve domain", "output": "nslookup domain"},
-    
-    {"input": "show routing table", "output": "route -n"},
-    {"input": "display routing table", "output": "route -n"},
-    {"input": "list routes", "output": "route -n"},
-    
-    {"input": "flush dns cache", "output": "systemd-resolve --flush-caches"},
-    {"input": "clear dns cache", "output": "systemd-resolve --flush-caches"},
-    {"input": "reset dns cache", "output": "systemd-resolve --flush-caches"},
-    
-    {"input": "show firewall rules", "output": "iptables -L"},
-    {"input": "display firewall rules", "output": "iptables -L"},
-    {"input": "list firewall rules", "output": "iptables -L"},
-    
-    {"input": "backup directory", "output": "cp -r source destination"},
-    {"input": "copy directory", "output": "cp -r source destination"},
-    {"input": "duplicate directory", "output": "cp -r source destination"},
-    
-    {"input": "sync directories", "output": "rsync -av source destination"},
-    {"input": "synchronize folders", "output": "rsync -av source destination"},
-    {"input": "mirror directory", "output": "rsync -av source destination"},
-    
-    {"input": "schedule task", "output": "crontab -e"},
-    {"input": "edit crontab", "output": "crontab -e"},
-    {"input": "add cron job", "output": "crontab -e"},
-    
-    {"input": "list cron jobs", "output": "crontab -l"},
-    {"input": "show cron jobs", "output": "crontab -l"},
-    {"input": "display scheduled tasks", "output": "crontab -l"},
-
-    {"input": "what is my home directory", "output": "echo $HOME"},
-    {"input": "whats my home directory", "output": "echo $HOME"},
-    {"input": "where is my home directory", "output": "echo $HOME"},
-    {"input": "show my home directory", "output": "echo $HOME"},
-    {"input": "display my home directory", "output": "echo $HOME"},
-    {"input": "print my home directory", "output": "echo $HOME"},
-    {"input": "tell me my home directory", "output": "echo $HOME"},
-    {"input": "what is my home folder", "output": "echo $HOME"},
-    {"input": "where is home", "output": "echo $HOME"},
-    
-    {"input": "go to home directory", "output": "cd ~"},
-    {"input": "change to home directory", "output": "cd ~"},
-    {"input": "navigate to home directory", "output": "cd ~"},
-    {"input": "move to home directory", "output": "cd ~"},
-    {"input": "go home", "output": "cd ~"},
-    {"input": "cd to home", "output": "cd ~"},
-    {"input": "switch to home", "output": "cd ~"},
-    
-    {"input": "where am i", "output": "pwd"},
-    {"input": "what directory am i in", "output": "pwd"},
-    {"input": "what is my current directory", "output": "pwd"},
-    {"input": "what folder am i in", "output": "pwd"},
-    {"input": "which directory am i in", "output": "pwd"},
-    {"input": "tell me current directory", "output": "pwd"},
-    {"input": "show me where i am", "output": "pwd"},
-    
-    {"input": "what is my username", "output": "whoami"},
-    {"input": "whats my username", "output": "whoami"},
-    {"input": "what is my user", "output": "whoami"},
-    {"input": "tell me my username", "output": "whoami"},
-    {"input": "who am i logged in as", "output": "whoami"},
-    {"input": "what user am i", "output": "whoami"},
-    {"input": "which user am i", "output": "whoami"},
-    
-    {"input": "how much disk space do i have", "output": "df -h"},
-    {"input": "how much space is left", "output": "df -h"},
-    {"input": "how much free space", "output": "df -h"},
-    {"input": "how much storage do i have", "output": "df -h"},
-    {"input": "how much disk space is available", "output": "df -h"},
-    {"input": "do i have enough space", "output": "df -h"},
-    {"input": "check if i have space", "output": "df -h"},
-    
-    {"input": "how much memory do i have", "output": "free -h"},
-    {"input": "how much ram is free", "output": "free -h"},
-    {"input": "how much memory is available", "output": "free -h"},
-    {"input": "do i have enough memory", "output": "free -h"},
-    {"input": "how much free ram", "output": "free -h"},
-    {"input": "whats my memory usage", "output": "free -h"},
-    
-    {"input": "what files are in this directory", "output": "ls -la"},
-    {"input": "what is in this folder", "output": "ls -la"},
-    {"input": "what is here", "output": "ls -la"},
-    {"input": "whats in this directory", "output": "ls -la"},
-    {"input": "show me what is here", "output": "ls -la"},
-    {"input": "tell me what files are here", "output": "ls -la"},
-    
-    {"input": "what python files are here", "output": "find . -name '*.py'"},
-    {"input": "are there any python files", "output": "find . -name '*.py'"},
-    {"input": "do i have python files", "output": "find . -name '*.py'"},
-    {"input": "show me python files", "output": "find . -name '*.py'"},
-    {"input": "where are my python files", "output": "find . -name '*.py'"},
-    
-    {"input": "what javascript files are here", "output": "find . -name '*.js'"},
-    {"input": "are there any javascript files", "output": "find . -name '*.js'"},
-    {"input": "do i have javascript files", "output": "find . -name '*.js'"},
-    {"input": "where are my javascript files", "output": "find . -name '*.js'"},
-    
-    {"input": "what java files are here", "output": "find . -name '*.java'"},
-    {"input": "are there any java files", "output": "find . -name '*.java'"},
-    {"input": "do i have java files", "output": "find . -name '*.java'"},
-    
-    {"input": "what processes are running", "output": "ps aux"},
-    {"input": "which processes are active", "output": "ps aux"},
-    {"input": "what is running on my system", "output": "ps aux"},
-    {"input": "tell me what processes are running", "output": "ps aux"},
-    {"input": "show me running processes", "output": "ps aux"},
-    {"input": "are there any processes running", "output": "ps aux"},
-    
-    {"input": "what is my ip address", "output": "ip addr"},
-    {"input": "whats my ip", "output": "ip addr"},
-    {"input": "tell me my ip address", "output": "ip addr"},
-    {"input": "show me my ip", "output": "ip addr"},
-    {"input": "what is my network address", "output": "ip addr"},
-    
-    {"input": "what is the date", "output": "date"},
-    {"input": "what day is it", "output": "date"},
-    {"input": "tell me the date", "output": "date"},
-    {"input": "whats todays date", "output": "date"},
-    {"input": "what time is it", "output": "date"},
-    {"input": "tell me the time", "output": "date"},
-    
-    {"input": "what is my hostname", "output": "hostname"},
-    {"input": "whats my computer name", "output": "hostname"},
-    {"input": "what is this machine called", "output": "hostname"},
-    {"input": "tell me my hostname", "output": "hostname"},
-    {"input": "show me my hostname", "output": "hostname"},
-    
-    {"input": "how long has the system been running", "output": "uptime"},
-    {"input": "how long has system been up", "output": "uptime"},
-    {"input": "when did the system start", "output": "uptime"},
-    {"input": "system uptime", "output": "uptime"},
-    {"input": "how long is the system up", "output": "uptime"},
-    
-    {"input": "what kernel version am i using", "output": "uname -r"},
-    {"input": "which kernel version", "output": "uname -r"},
-    {"input": "tell me kernel version", "output": "uname -r"},
-    {"input": "what kernel am i running", "output": "uname -r"},
-    
-    {"input": "what operating system am i using", "output": "uname -a"},
-    {"input": "which os am i on", "output": "uname -a"},
-    {"input": "what is my os", "output": "uname -a"},
-    {"input": "tell me my operating system", "output": "uname -a"},
-    
-    {"input": "is google reachable", "output": "ping google.com"},
-    {"input": "can i reach google", "output": "ping google.com"},
-    {"input": "can i connect to google", "output": "ping google.com"},
-    {"input": "test connection to google", "output": "ping google.com"},
-    {"input": "check if google is up", "output": "ping google.com"},
-    {"input": "is google responding", "output": "ping google.com"},
-    
-    {"input": "do i have internet", "output": "ping google.com"},
-    {"input": "is internet working", "output": "ping google.com"},
-    {"input": "am i connected to internet", "output": "ping google.com"},
-    {"input": "is my internet connection working", "output": "ping google.com"},
-    {"input": "check internet connection", "output": "ping google.com"},
-    
-    {"input": "what environment variables are set", "output": "env"},
-    {"input": "which env vars exist", "output": "env"},
-    {"input": "show me environment variables", "output": "env"},
-    {"input": "list all env variables", "output": "env"},
-    {"input": "what are my env variables", "output": "env"},
-    
-    {"input": "what is in file test.txt", "output": "cat test.txt"},
-    {"input": "show me file test.txt", "output": "cat test.txt"},
-    {"input": "read file test.txt", "output": "cat test.txt"},
-    {"input": "display file test.txt", "output": "cat test.txt"},
-    {"input": "whats in file test.txt", "output": "cat test.txt"},
-    {"input": "tell me contents of test.txt", "output": "cat test.txt"},
-    
-    {"input": "how many lines in file test.txt", "output": "wc -l test.txt"},
-    {"input": "count lines in test.txt", "output": "wc -l test.txt"},
-    {"input": "how many lines does test.txt have", "output": "wc -l test.txt"},
-    {"input": "tell me number of lines in test.txt", "output": "wc -l test.txt"},
-    
-    {"input": "what ports are open", "output": "netstat -tuln"},
-    {"input": "which ports are listening", "output": "netstat -tuln"},
-    {"input": "show me open ports", "output": "netstat -tuln"},
-    {"input": "what ports are being used", "output": "netstat -tuln"},
-    {"input": "list open ports", "output": "netstat -tuln"},
-    
-    {"input": "what connections are active", "output": "netstat -tuln"},
-    {"input": "which connections are open", "output": "netstat -tuln"},
-    {"input": "show me network connections", "output": "netstat -tuln"},
-    {"input": "what network connections exist", "output": "netstat -tuln"},
-    
-    {"input": "how big is file test.txt", "output": "ls -lh test.txt"},
-    {"input": "what is the size of test.txt", "output": "ls -lh test.txt"},
-    {"input": "tell me size of test.txt", "output": "ls -lh test.txt"},
-    {"input": "show me size of test.txt", "output": "ls -lh test.txt"},
-    
-    {"input": "what folders are here", "output": "ls -d */"},
-    {"input": "which directories exist here", "output": "ls -d */"},
-    {"input": "show me directories", "output": "ls -d */"},
-    {"input": "list all folders", "output": "ls -d */"},
-    
-    {"input": "what is taking up space", "output": "du -sh *"},
-    {"input": "which folders are largest", "output": "du -sh *"},
-    {"input": "what is using disk space", "output": "du -sh *"},
-    {"input": "show me folder sizes", "output": "du -sh *"},
-    
-    {"input": "what commands did i run", "output": "history"},
-    {"input": "show me my command history", "output": "history"},
-    {"input": "what did i type before", "output": "history"},
-    {"input": "list my previous commands", "output": "history"},
-    {"input": "tell me what commands i ran", "output": "history"},
-    
-    {"input": "can i execute this file", "output": "ls -l file"},
-    {"input": "is this file executable", "output": "ls -l file"},
-    {"input": "what permissions does this file have", "output": "ls -l file"},
-    {"input": "check file permissions", "output": "ls -l file"},
-    
-    {"input": "who else is logged in", "output": "w"},
-    {"input": "what users are logged in", "output": "w"},
-    {"input": "which users are online", "output": "w"},
-    {"input": "show me logged in users", "output": "w"},
-    {"input": "are there other users logged in", "output": "w"},
-    
-    {"input": "when did i last login", "output": "last"},
-    {"input": "show me login history", "output": "last"},
-    {"input": "when was i last here", "output": "last"},
-    {"input": "tell me my login history", "output": "last"},
-
-    
-    {"input": "list all files", "output": "ls -la"},
-    {"input": "show current directory", "output": "pwd"},
-    {"input": "change to home directory", "output": "cd ~"},
-    {"input": "show disk usage", "output": "df -h"},
-    {"input": "show running processes", "output": "ps aux"},
-    {"input": "list processes", "output": "ps aux"},
-    {"input": "show network connections", "output": "netstat -tuln"},
-    {"input": "display active connections", "output": "netstat -tuln"},
-    {"input": "check system information", "output": "uname -a"},
-    {"input": "show system details", "output": "uname -a"},
-    {"input": "show environment variables", "output": "env"},
-    {"input": "display env vars", "output": "env"},
-    {"input": "show disk space", "output": "du -sh *"},
-    {"input": "check folder sizes", "output": "du -sh *"},
-    {"input": "ping google", "output": "ping google.com"},
-    {"input": "test connection to server", "output": "ping google.com"},
-    {"input": "clear terminal", "output": "clear"},
-    {"input": "clear screen", "output": "clear"},
-    {"input": "who is logged in", "output": "who"},
-    {"input": "show logged in users", "output": "who"},
-    {"input": "show current user", "output": "whoami"},
-
-    {"input": "create a new directory named <NAME>", "output": "mkdir <NAME>"},
-    {"input": "make directory named <NAME>", "output": "mkdir <NAME>"},
-    {"input": "make a new folder named <NAME>", "output": "mkdir <NAME>"},
-    {"input": "create folder named <NAME>", "output": "mkdir <NAME>"},
-    {"input": "create directory named <NAME>", "output": "mkdir <NAME>"},
-
-    {"input": "remove file <FILENAME>", "output": "rm <FILENAME>"},
-    {"input": "delete file <FILENAME>", "output": "rm <FILENAME>"},
-    {"input": "delete <FILENAME>", "output": "rm <FILENAME>"},
-
-    {"input": "display file contents <FILENAME>", "output": "cat <FILENAME>"},
-    {"input": "show file content <FILENAME>", "output": "cat <FILENAME>"},
-    {"input": "read file <FILENAME>", "output": "cat <FILENAME>"},
-    {"input": "print file <FILENAME>", "output": "cat <FILENAME>"},
-
-    {"input": "count lines in <FILENAME>", "output": "wc -l <FILENAME>"},
-    {"input": "count words in <FILENAME>", "output": "wc -w <FILENAME>"},
-    {"input": "sort file contents <FILENAME>", "output": "sort <FILENAME>"},
-    {"input": "sort <FILENAME>", "output": "sort <FILENAME>"},
-
-    {"input": "create empty file named <NAME>", "output": "touch <NAME>"},
-    {"input": "make new file named <NAME>", "output": "touch <NAME>"},
-    {"input": "create <EXT> file named <NAME>", "output": "touch <NAME>.<EXT>"},
-    {"input": "make a <EXT> file named <NAME>", "output": "touch <NAME>.<EXT>"},
-    {"input": "create a new <EXT> file named <NAME>", "output": "touch <NAME>.<EXT>"},
-    {"input": "make a <EXT> file called <NAME>", "output": "touch <NAME>.<EXT>"},
-    {"input": "new <EXT> file named <NAME>", "output": "touch <NAME>.<EXT>"},
-
-    {"input": "open <EXT> file named <NAME>", "output": "nano <NAME>.<EXT>"},
-    {"input": "edit <EXT> file named <NAME>", "output": "nano <NAME>.<EXT>"},
-    {"input": "edit file <FILENAME>", "output": "nano <FILENAME>"},
-    {"input": "open file <FILENAME>", "output": "nano <FILENAME>"},
-
-    {"input": "show last <NUM> lines", "output": "tail -n <NUM> file.txt"},
-    {"input": "display end of file <NUM> lines", "output": "tail -n <NUM> file.txt"},
-    {"input": "tail last <NUM> lines", "output": "tail -n <NUM> file.txt"},
-    {"input": "show last <NUM> lines of <FILENAME>", "output": "tail -n <NUM> <FILENAME>"},
-    {"input": "show first <NUM> lines", "output": "head -n <NUM> file.txt"},
-    {"input": "show first <NUM> lines of <FILENAME>", "output": "head -n <NUM> <FILENAME>"},
-    {"input": "head <NUM> lines of <FILENAME>", "output": "head -n <NUM> <FILENAME>"},
-
-    {"input": "move <FILENAME> to <DIRNAME>/", "output": "mv <FILENAME> <DIRNAME>/"},
-    {"input": "move file <FILENAME> to <DIRNAME> folder", "output": "mv <FILENAME> <DIRNAME>/"},
-    {"input": "copy <FILENAME> to <DIRNAME>/", "output": "cp <FILENAME> <DIRNAME>/"},
-
-    {"input": "find all <EXT> files", "output": "find . -name '*.<EXT>'"},
-    {"input": "search for <EXT> files", "output": "find . -name '*.<EXT>'"},
-    {"input": "list all <EXT> files", "output": "find . -name '*.<EXT>'"},
-
-    {"input": "compress folder named <NAME>", "output": "tar -czf <NAME>.tar.gz <NAME>/"},
-    {"input": "create archive of directory named <NAME>", "output": "tar -czf <NAME>.tar.gz <NAME>/"},
-    {"input": "extract archive", "output": "tar -xzf archive.tar.gz"},
-    {"input": "unpack compressed file", "output": "tar -xzf archive.tar.gz"},
-    {"input": "extract <FILENAME>", "output": "tar -xzf <FILENAME>"},
-
-    {"input": "download file from url", "output": "wget url"},
-    {"input": "fetch file from web", "output": "wget url"},
-
-    {"input": "search for text in <FILENAME>", "output": "grep 'pattern' <FILENAME>"},
-    {"input": "find text pattern in <FILENAME>", "output": "grep 'pattern' <FILENAME>"},
-
-    {"input": "find files modified today", "output": "find . -mtime 0"},
-    {"input": "search recently changed files", "output": "find . -mtime 0"},
-
-    {"input": "change permissions of <FILENAME>", "output": "chmod 755 <FILENAME>"},
-    {"input": "make <FILENAME> executable", "output": "chmod +x <FILENAME>"},
-    {"input": "make file executable <FILENAME>", "output": "chmod +x <FILENAME>"},
-
-    {"input": "show file permissions", "output": "ls -la"},
-    {"input": "check who owns <FILENAME>", "output": "ls -la <FILENAME>"},
-
-    {"input": "run script <FILENAME>", "output": "bash <FILENAME>"},
-    {"input": "execute script <FILENAME>", "output": "bash <FILENAME>"},
-
-    {"input": "install package named <NAME>", "output": "apt install <NAME>"},
-    {"input": "uninstall package named <NAME>", "output": "apt remove <NAME>"},
-
-    {"input": "kill process named <NAME>", "output": "pkill <NAME>"},
-    {"input": "stop process named <NAME>", "output": "pkill <NAME>"}
+  {
+    "input": "list all files",
+    "output": "ls -la"
+  },
+  {
+    "input": "show directory contents",
+    "output": "ls -la"
+  },
+  {
+    "input": "what is in this folder",
+    "output": "ls -la"
+  },
+  {
+    "input": "show hidden files too",
+    "output": "ls -la"
+  },
+  {
+    "input": "list only directories",
+    "output": "ls -d */"
+  },
+  {
+    "input": "show only folders here",
+    "output": "ls -d */"
+  },
+  {
+    "input": "what folders exist here",
+    "output": "ls -d */"
+  },
+  {
+    "input": "show current directory",
+    "output": "pwd"
+  },
+  {
+    "input": "where am i",
+    "output": "pwd"
+  },
+  {
+    "input": "what is my current path",
+    "output": "pwd"
+  },
+  {
+    "input": "what folder am i in",
+    "output": "pwd"
+  },
+  {
+    "input": "go to home directory",
+    "output": "cd ~"
+  },
+  {
+    "input": "go home",
+    "output": "cd ~"
+  },
+  {
+    "input": "switch to home",
+    "output": "cd ~"
+  },
+  {
+    "input": "go to previous directory",
+    "output": "cd -"
+  },
+  {
+    "input": "go back to last folder",
+    "output": "cd -"
+  },
+  {
+    "input": "switch back to previous folder",
+    "output": "cd -"
+  },
+  {
+    "input": "go up one directory",
+    "output": "cd .."
+  },
+  {
+    "input": "navigate to parent folder",
+    "output": "cd .."
+  },
+  {
+    "input": "move up one level",
+    "output": "cd .."
+  },
+  {
+    "input": "create directory named <NAME>",
+    "output": "mkdir <NAME>"
+  },
+  {
+    "input": "make folder <NAME>",
+    "output": "mkdir <NAME>"
+  },
+  {
+    "input": "make new directory <NAME>",
+    "output": "mkdir <NAME>"
+  },
+  {
+    "input": "create nested directories <PATH>",
+    "output": "mkdir -p <PATH>"
+  },
+  {
+    "input": "make directory and all parents <PATH>",
+    "output": "mkdir -p <PATH>"
+  },
+  {
+    "input": "create full directory path <PATH>",
+    "output": "mkdir -p <PATH>"
+  },
+  {
+    "input": "create empty file named <NAME>",
+    "output": "touch <NAME>"
+  },
+  {
+    "input": "make new file <NAME>",
+    "output": "touch <NAME>"
+  },
+  {
+    "input": "create a <EXT> file named <NAME>",
+    "output": "touch <NAME>.<EXT>"
+  },
+  {
+    "input": "make a <EXT> file called <NAME>",
+    "output": "touch <NAME>.<EXT>"
+  },
+  {
+    "input": "delete file <FILENAME>",
+    "output": "rm <FILENAME>"
+  },
+  {
+    "input": "remove file <FILENAME>",
+    "output": "rm <FILENAME>"
+  },
+  {
+    "input": "erase file <FILENAME>",
+    "output": "rm <FILENAME>"
+  },
+  {
+    "input": "delete file <FILENAME> without confirmation",
+    "output": "rm -f <FILENAME>"
+  },
+  {
+    "input": "force delete file <FILENAME>",
+    "output": "rm -f <FILENAME>"
+  },
+  {
+    "input": "delete directory <DIRNAME>",
+    "output": "rm -r <DIRNAME>"
+  },
+  {
+    "input": "remove folder <DIRNAME>",
+    "output": "rm -r <DIRNAME>"
+  },
+  {
+    "input": "delete folder and its contents <DIRNAME>",
+    "output": "rm -r <DIRNAME>"
+  },
+  {
+    "input": "delete empty directory <DIRNAME>",
+    "output": "rmdir <DIRNAME>"
+  },
+  {
+    "input": "remove empty folder <DIRNAME>",
+    "output": "rmdir <DIRNAME>"
+  },
+  {
+    "input": "copy <SOURCE> to <DEST>",
+    "output": "cp <SOURCE> <DEST>"
+  },
+  {
+    "input": "duplicate file <SOURCE> as <DEST>",
+    "output": "cp <SOURCE> <DEST>"
+  },
+  {
+    "input": "make a copy of <SOURCE> called <DEST>",
+    "output": "cp <SOURCE> <DEST>"
+  },
+  {
+    "input": "copy and preserve permissions <SOURCE> to <DEST>",
+    "output": "cp -p <SOURCE> <DEST>"
+  },
+  {
+    "input": "copy directory <SOURCE> to <DEST>",
+    "output": "cp -r <SOURCE> <DEST>"
+  },
+  {
+    "input": "duplicate folder <SOURCE> to <DEST>",
+    "output": "cp -r <SOURCE> <DEST>"
+  },
+  {
+    "input": "move <FILENAME> to <DIRNAME>",
+    "output": "mv <FILENAME> <DIRNAME>/"
+  },
+  {
+    "input": "transfer file <FILENAME> to folder <DIRNAME>",
+    "output": "mv <FILENAME> <DIRNAME>/"
+  },
+  {
+    "input": "rename file <OLD> to <NEW>",
+    "output": "mv <OLD> <NEW>"
+  },
+  {
+    "input": "rename folder <OLD> to <NEW>",
+    "output": "mv <OLD> <NEW>"
+  },
+  {
+    "input": "show contents of <FILENAME>",
+    "output": "cat <FILENAME>"
+  },
+  {
+    "input": "read file <FILENAME>",
+    "output": "cat <FILENAME>"
+  },
+  {
+    "input": "print file <FILENAME>",
+    "output": "cat <FILENAME>"
+  },
+  {
+    "input": "whats in file <FILENAME>",
+    "output": "cat <FILENAME>"
+  },
+  {
+    "input": "display file <FILENAME>",
+    "output": "cat <FILENAME>"
+  },
+  {
+    "input": "page through file <FILENAME>",
+    "output": "less <FILENAME>"
+  },
+  {
+    "input": "scroll through large file <FILENAME>",
+    "output": "less <FILENAME>"
+  },
+  {
+    "input": "open file for reading <FILENAME>",
+    "output": "less <FILENAME>"
+  },
+  {
+    "input": "show first <NUM> lines of <FILENAME>",
+    "output": "head -n <NUM> <FILENAME>"
+  },
+  {
+    "input": "display beginning of <FILENAME>",
+    "output": "head -n 10 <FILENAME>"
+  },
+  {
+    "input": "show top lines of <FILENAME>",
+    "output": "head -n 10 <FILENAME>"
+  },
+  {
+    "input": "show last <NUM> lines of <FILENAME>",
+    "output": "tail -n <NUM> <FILENAME>"
+  },
+  {
+    "input": "display end of <FILENAME>",
+    "output": "tail -n 10 <FILENAME>"
+  },
+  {
+    "input": "follow log file <FILENAME>",
+    "output": "tail -f <FILENAME>"
+  },
+  {
+    "input": "watch file <FILENAME> for new lines",
+    "output": "tail -f <FILENAME>"
+  },
+  {
+    "input": "stream log <FILENAME> in real time",
+    "output": "tail -f <FILENAME>"
+  },
+  {
+    "input": "edit file <FILENAME>",
+    "output": "nano <FILENAME>"
+  },
+  {
+    "input": "open file <FILENAME> in editor",
+    "output": "nano <FILENAME>"
+  },
+  {
+    "input": "find all <EXT> files",
+    "output": "find . -name '*.<EXT>'"
+  },
+  {
+    "input": "search for <EXT> files",
+    "output": "find . -name '*.<EXT>'"
+  },
+  {
+    "input": "locate all <EXT> files",
+    "output": "find . -name '*.<EXT>'"
+  },
+  {
+    "input": "where are my <EXT> files",
+    "output": "find . -name '*.<EXT>'"
+  },
+  {
+    "input": "find file named <FILENAME>",
+    "output": "find / -name '<FILENAME>' 2>/dev/null"
+  },
+  {
+    "input": "search entire system for file <FILENAME>",
+    "output": "find / -name '<FILENAME>' 2>/dev/null"
+  },
+  {
+    "input": "locate file <FILENAME> on system",
+    "output": "find / -name '<FILENAME>' 2>/dev/null"
+  },
+  {
+    "input": "find files modified today",
+    "output": "find . -mtime 0"
+  },
+  {
+    "input": "show recently changed files",
+    "output": "find . -mtime 0"
+  },
+  {
+    "input": "what files changed today",
+    "output": "find . -mtime 0"
+  },
+  {
+    "input": "find files modified in last <NUM> days",
+    "output": "find . -mtime -<NUM>"
+  },
+  {
+    "input": "find empty directories",
+    "output": "find . -type d -empty"
+  },
+  {
+    "input": "find empty files",
+    "output": "find . -type f -empty"
+  },
+  {
+    "input": "search for '<PATTERN>' in <FILENAME>",
+    "output": "grep '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "find text <PATTERN> in <FILENAME>",
+    "output": "grep '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "look for <PATTERN> in <FILENAME>",
+    "output": "grep '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "search case insensitive for '<PATTERN>' in <FILENAME>",
+    "output": "grep -i '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "find <PATTERN> in <FILENAME> with line numbers",
+    "output": "grep -n '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "search recursively for '<PATTERN>'",
+    "output": "grep -rn '<PATTERN>' ."
+  },
+  {
+    "input": "find '<PATTERN>' in all files",
+    "output": "grep -rn '<PATTERN>' ."
+  },
+  {
+    "input": "grep for <PATTERN> across all files",
+    "output": "grep -rn '<PATTERN>' ."
+  },
+  {
+    "input": "search only <EXT> files for '<PATTERN>'",
+    "output": "grep -rn '<PATTERN>' . --include='*.<EXT>'"
+  },
+  {
+    "input": "find lines not matching <PATTERN> in <FILENAME>",
+    "output": "grep -v '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "count matches of <PATTERN> in <FILENAME>",
+    "output": "grep -c '<PATTERN>' <FILENAME>"
+  },
+  {
+    "input": "count lines in <FILENAME>",
+    "output": "wc -l <FILENAME>"
+  },
+  {
+    "input": "how many lines in <FILENAME>",
+    "output": "wc -l <FILENAME>"
+  },
+  {
+    "input": "count words in <FILENAME>",
+    "output": "wc -w <FILENAME>"
+  },
+  {
+    "input": "how many words in <FILENAME>",
+    "output": "wc -w <FILENAME>"
+  },
+  {
+    "input": "sort contents of <FILENAME>",
+    "output": "sort <FILENAME>"
+  },
+  {
+    "input": "alphabetically sort <FILENAME>",
+    "output": "sort <FILENAME>"
+  },
+  {
+    "input": "sort <FILENAME> in reverse",
+    "output": "sort -r <FILENAME>"
+  },
+  {
+    "input": "sort <FILENAME> numerically",
+    "output": "sort -n <FILENAME>"
+  },
+  {
+    "input": "sort and remove duplicates in <FILENAME>",
+    "output": "sort -u <FILENAME>"
+  },
+  {
+    "input": "show file size of <FILENAME>",
+    "output": "ls -lh <FILENAME>"
+  },
+  {
+    "input": "how big is <FILENAME>",
+    "output": "ls -lh <FILENAME>"
+  },
+  {
+    "input": "what is the size of <FILENAME>",
+    "output": "ls -lh <FILENAME>"
+  },
+  {
+    "input": "show permissions of <FILENAME>",
+    "output": "ls -l <FILENAME>"
+  },
+  {
+    "input": "who owns <FILENAME>",
+    "output": "ls -l <FILENAME>"
+  },
+  {
+    "input": "is <FILENAME> executable",
+    "output": "ls -l <FILENAME>"
+  },
+  {
+    "input": "make <FILENAME> executable",
+    "output": "chmod +x <FILENAME>"
+  },
+  {
+    "input": "add execute permission to <FILENAME>",
+    "output": "chmod +x <FILENAME>"
+  },
+  {
+    "input": "only owner can execute <FILENAME>",
+    "output": "chmod u+x <FILENAME>"
+  },
+  {
+    "input": "change permissions of <FILENAME> to <MODE>",
+    "output": "chmod <MODE> <FILENAME>"
+  },
+  {
+    "input": "set permissions on <FILENAME> to <MODE>",
+    "output": "chmod <MODE> <FILENAME>"
+  },
+  {
+    "input": "make <FILENAME> read only",
+    "output": "chmod 444 <FILENAME>"
+  },
+  {
+    "input": "make <FILENAME> private",
+    "output": "chmod 600 <FILENAME>"
+  },
+  {
+    "input": "change owner of <FILENAME> to <USER>",
+    "output": "chown <USER> <FILENAME>"
+  },
+  {
+    "input": "transfer ownership of <FILENAME> to <USER>",
+    "output": "chown <USER> <FILENAME>"
+  },
+  {
+    "input": "change owner and group of <FILENAME> to <USER> <GROUP>",
+    "output": "chown <USER>:<GROUP> <FILENAME>"
+  },
+  {
+    "input": "compress directory <NAME>",
+    "output": "tar -czf <NAME>.tar.gz <NAME>/"
+  },
+  {
+    "input": "archive folder <NAME>",
+    "output": "tar -czf <NAME>.tar.gz <NAME>/"
+  },
+  {
+    "input": "create tar archive of <NAME>",
+    "output": "tar -czf <NAME>.tar.gz <NAME>/"
+  },
+  {
+    "input": "zip up directory <NAME>",
+    "output": "tar -czf <NAME>.tar.gz <NAME>/"
+  },
+  {
+    "input": "extract archive <FILENAME>",
+    "output": "tar -xzf <FILENAME>"
+  },
+  {
+    "input": "unpack <FILENAME>",
+    "output": "tar -xzf <FILENAME>"
+  },
+  {
+    "input": "decompress <FILENAME>",
+    "output": "tar -xzf <FILENAME>"
+  },
+  {
+    "input": "extract <FILENAME> to directory <DEST>",
+    "output": "tar -xzf <FILENAME> -C <DEST>"
+  },
+  {
+    "input": "list contents of archive <FILENAME>",
+    "output": "tar -tzf <FILENAME>"
+  },
+  {
+    "input": "peek inside archive <FILENAME>",
+    "output": "tar -tzf <FILENAME>"
+  },
+  {
+    "input": "what is inside <FILENAME> archive",
+    "output": "tar -tzf <FILENAME>"
+  },
+  {
+    "input": "compare file <FILE1> and <FILE2>",
+    "output": "diff <FILE1> <FILE2>"
+  },
+  {
+    "input": "show differences between <FILE1> and <FILE2>",
+    "output": "diff <FILE1> <FILE2>"
+  },
+  {
+    "input": "what changed between <FILE1> and <FILE2>",
+    "output": "diff <FILE1> <FILE2>"
+  },
+  {
+    "input": "compare <FILE1> and <FILE2> unified format",
+    "output": "diff -u <FILE1> <FILE2>"
+  },
+  {
+    "input": "create symbolic link <LINK> pointing to <TARGET>",
+    "output": "ln -s <TARGET> <LINK>"
+  },
+  {
+    "input": "make symlink <LINK> to <TARGET>",
+    "output": "ln -s <TARGET> <LINK>"
+  },
+  {
+    "input": "sync directory <SOURCE> to <DEST>",
+    "output": "rsync -av <SOURCE> <DEST>"
+  },
+  {
+    "input": "mirror folder <SOURCE> to <DEST>",
+    "output": "rsync -av <SOURCE> <DEST>"
+  },
+  {
+    "input": "sync <SOURCE> to <DEST> and delete removed files",
+    "output": "rsync -av --delete <SOURCE> <DEST>"
+  },
+  {
+    "input": "dry run sync <SOURCE> to <DEST>",
+    "output": "rsync -av --dry-run <SOURCE> <DEST>"
+  },
+  {
+    "input": "preview sync <SOURCE> to <DEST>",
+    "output": "rsync -av --dry-run <SOURCE> <DEST>"
+  },
+  {
+    "input": "check available disk space",
+    "output": "df -h"
+  },
+  {
+    "input": "how much free disk space do i have",
+    "output": "df -h"
+  },
+  {
+    "input": "how much storage is left",
+    "output": "df -h"
+  },
+  {
+    "input": "show folder sizes",
+    "output": "du -sh *"
+  },
+  {
+    "input": "what is using disk space",
+    "output": "du -sh *"
+  },
+  {
+    "input": "which directories are largest",
+    "output": "du -sh *"
+  },
+  {
+    "input": "show size of directory <DIRNAME>",
+    "output": "du -sh <DIRNAME>"
+  },
+  {
+    "input": "how big is folder <DIRNAME>",
+    "output": "du -sh <DIRNAME>"
+  },
+  {
+    "input": "find largest files",
+    "output": "du -ah . | sort -rh | head -n 10"
+  },
+  {
+    "input": "what files take the most space",
+    "output": "du -ah . | sort -rh | head -n 10"
+  },
+  {
+    "input": "show top 10 largest files",
+    "output": "du -ah . | sort -rh | head -n 10"
+  },
+  {
+    "input": "show running processes",
+    "output": "ps aux"
+  },
+  {
+    "input": "what processes are running",
+    "output": "ps aux"
+  },
+  {
+    "input": "list all processes",
+    "output": "ps aux"
+  },
+  {
+    "input": "find process named <NAME>",
+    "output": "ps aux | grep <NAME>"
+  },
+  {
+    "input": "is <NAME> process running",
+    "output": "ps aux | grep <NAME>"
+  },
+  {
+    "input": "get pid of <NAME>",
+    "output": "pgrep <NAME>"
+  },
+  {
+    "input": "find pid for process <NAME>",
+    "output": "pgrep <NAME>"
+  },
+  {
+    "input": "monitor system resources",
+    "output": "top"
+  },
+  {
+    "input": "watch cpu and memory usage",
+    "output": "top"
+  },
+  {
+    "input": "show live process activity",
+    "output": "top"
+  },
+  {
+    "input": "kill process with pid <PID>",
+    "output": "kill <PID>"
+  },
+  {
+    "input": "terminate process <PID>",
+    "output": "kill <PID>"
+  },
+  {
+    "input": "force kill process <PID>",
+    "output": "kill -9 <PID>"
+  },
+  {
+    "input": "kill process that wont stop <PID>",
+    "output": "kill -9 <PID>"
+  },
+  {
+    "input": "kill process named <NAME>",
+    "output": "pkill <NAME>"
+  },
+  {
+    "input": "stop process named <NAME>",
+    "output": "pkill <NAME>"
+  },
+  {
+    "input": "force kill all processes named <NAME>",
+    "output": "pkill -9 <NAME>"
+  },
+  {
+    "input": "run <COMMAND> in background",
+    "output": "<COMMAND> &"
+  },
+  {
+    "input": "start <COMMAND> without blocking terminal",
+    "output": "<COMMAND> &"
+  },
+  {
+    "input": "run script <FILENAME>",
+    "output": "bash <FILENAME>"
+  },
+  {
+    "input": "execute script <FILENAME>",
+    "output": "bash <FILENAME>"
+  },
+  {
+    "input": "debug script <FILENAME>",
+    "output": "bash -x <FILENAME>"
+  },
+  {
+    "input": "trace execution of script <FILENAME>",
+    "output": "bash -x <FILENAME>"
+  },
+  {
+    "input": "show my ip address",
+    "output": "ip addr"
+  },
+  {
+    "input": "what is my ip address",
+    "output": "ip addr"
+  },
+  {
+    "input": "show network interfaces",
+    "output": "ip addr"
+  },
+  {
+    "input": "show routing table",
+    "output": "ip route"
+  },
+  {
+    "input": "show network routes",
+    "output": "ip route"
+  },
+  {
+    "input": "what is my default gateway",
+    "output": "ip route"
+  },
+  {
+    "input": "show open ports",
+    "output": "ss -tuln"
+  },
+  {
+    "input": "what ports are listening",
+    "output": "ss -tuln"
+  },
+  {
+    "input": "which ports are in use",
+    "output": "ss -tuln"
+  },
+  {
+    "input": "show what is using port <PORT>",
+    "output": "ss -tulnp | grep <PORT>"
+  },
+  {
+    "input": "what process is on port <PORT>",
+    "output": "ss -tulnp | grep <PORT>"
+  },
+  {
+    "input": "show network connections",
+    "output": "netstat -tuln"
+  },
+  {
+    "input": "test connection to <HOST>",
+    "output": "ping -c 4 <HOST>"
+  },
+  {
+    "input": "ping <HOST>",
+    "output": "ping -c 4 <HOST>"
+  },
+  {
+    "input": "is <HOST> reachable",
+    "output": "ping -c 4 <HOST>"
+  },
+  {
+    "input": "check internet connection",
+    "output": "ping -c 4 google.com"
+  },
+  {
+    "input": "do i have internet",
+    "output": "ping -c 4 google.com"
+  },
+  {
+    "input": "is internet working",
+    "output": "ping -c 4 google.com"
+  },
+  {
+    "input": "trace route to <HOST>",
+    "output": "traceroute <HOST>"
+  },
+  {
+    "input": "show network hops to <HOST>",
+    "output": "traceroute <HOST>"
+  },
+  {
+    "input": "diagnose connection to <HOST>",
+    "output": "traceroute <HOST>"
+  },
+  {
+    "input": "look up dns for <DOMAIN>",
+    "output": "nslookup <DOMAIN>"
+  },
+  {
+    "input": "resolve domain <DOMAIN>",
+    "output": "nslookup <DOMAIN>"
+  },
+  {
+    "input": "what ip is <DOMAIN>",
+    "output": "dig +short <DOMAIN>"
+  },
+  {
+    "input": "get ip of <DOMAIN>",
+    "output": "dig +short <DOMAIN>"
+  },
+  {
+    "input": "flush dns cache",
+    "output": "systemd-resolve --flush-caches"
+  },
+  {
+    "input": "clear dns cache",
+    "output": "systemd-resolve --flush-caches"
+  },
+  {
+    "input": "download file from <URL>",
+    "output": "wget <URL>"
+  },
+  {
+    "input": "fetch file from <URL>",
+    "output": "wget <URL>"
+  },
+  {
+    "input": "download <URL> and save as <FILENAME>",
+    "output": "wget -O <FILENAME> <URL>"
+  },
+  {
+    "input": "resume download from <URL>",
+    "output": "wget -c <URL>"
+  },
+  {
+    "input": "continue interrupted download <URL>",
+    "output": "wget -c <URL>"
+  },
+  {
+    "input": "show firewall rules",
+    "output": "iptables -L"
+  },
+  {
+    "input": "list firewall rules",
+    "output": "iptables -L"
+  },
+  {
+    "input": "show system information",
+    "output": "uname -a"
+  },
+  {
+    "input": "what operating system am i using",
+    "output": "uname -a"
+  },
+  {
+    "input": "show kernel version",
+    "output": "uname -r"
+  },
+  {
+    "input": "what kernel am i running",
+    "output": "uname -r"
+  },
+  {
+    "input": "show distro information",
+    "output": "cat /etc/os-release"
+  },
+  {
+    "input": "what linux distro is this",
+    "output": "cat /etc/os-release"
+  },
+  {
+    "input": "show ubuntu version",
+    "output": "cat /etc/os-release"
+  },
+  {
+    "input": "show system uptime",
+    "output": "uptime"
+  },
+  {
+    "input": "how long has system been running",
+    "output": "uptime"
+  },
+  {
+    "input": "when did system last reboot",
+    "output": "uptime"
+  },
+  {
+    "input": "show hostname",
+    "output": "hostname"
+  },
+  {
+    "input": "what is this machine called",
+    "output": "hostname"
+  },
+  {
+    "input": "what is my hostname",
+    "output": "hostname"
+  },
+  {
+    "input": "change hostname to <NAME>",
+    "output": "hostnamectl set-hostname <NAME>"
+  },
+  {
+    "input": "set hostname to <NAME>",
+    "output": "hostnamectl set-hostname <NAME>"
+  },
+  {
+    "input": "show cpu information",
+    "output": "lscpu"
+  },
+  {
+    "input": "show processor details",
+    "output": "lscpu"
+  },
+  {
+    "input": "how many cpu cores do i have",
+    "output": "nproc"
+  },
+  {
+    "input": "show memory usage",
+    "output": "free -h"
+  },
+  {
+    "input": "how much ram do i have",
+    "output": "free -h"
+  },
+  {
+    "input": "how much free memory is there",
+    "output": "free -h"
+  },
+  {
+    "input": "list block devices",
+    "output": "lsblk"
+  },
+  {
+    "input": "show disks and partitions",
+    "output": "lsblk"
+  },
+  {
+    "input": "show disk partitions",
+    "output": "fdisk -l"
+  },
+  {
+    "input": "show usb devices",
+    "output": "lsusb"
+  },
+  {
+    "input": "list pci devices",
+    "output": "lspci"
+  },
+  {
+    "input": "show mounted filesystems",
+    "output": "mount"
+  },
+  {
+    "input": "show environment variables",
+    "output": "env"
+  },
+  {
+    "input": "list all env variables",
+    "output": "env"
+  },
+  {
+    "input": "what environment variables are set",
+    "output": "env"
+  },
+  {
+    "input": "show my home directory",
+    "output": "echo $HOME"
+  },
+  {
+    "input": "what is my home directory",
+    "output": "echo $HOME"
+  },
+  {
+    "input": "set environment variable <KEY> to <VALUE>",
+    "output": "export <KEY>=<VALUE>"
+  },
+  {
+    "input": "export variable <KEY> as <VALUE>",
+    "output": "export <KEY>=<VALUE>"
+  },
+  {
+    "input": "unset environment variable <KEY>",
+    "output": "unset <KEY>"
+  },
+  {
+    "input": "remove env variable <KEY>",
+    "output": "unset <KEY>"
+  },
+  {
+    "input": "show system logs",
+    "output": "journalctl"
+  },
+  {
+    "input": "view system journal",
+    "output": "journalctl"
+  },
+  {
+    "input": "show logs for service <NAME>",
+    "output": "journalctl -u <NAME>"
+  },
+  {
+    "input": "follow logs for service <NAME>",
+    "output": "journalctl -u <NAME> -f"
+  },
+  {
+    "input": "show logs from last hour",
+    "output": "journalctl --since '1 hour ago'"
+  },
+  {
+    "input": "show todays logs",
+    "output": "journalctl --since today"
+  },
+  {
+    "input": "restart system",
+    "output": "sudo reboot"
+  },
+  {
+    "input": "reboot computer",
+    "output": "sudo reboot"
+  },
+  {
+    "input": "shut down the system",
+    "output": "sudo shutdown -h now"
+  },
+  {
+    "input": "power off computer",
+    "output": "sudo shutdown -h now"
+  },
+  {
+    "input": "schedule shutdown in <NUM> minutes",
+    "output": "sudo shutdown -h +<NUM>"
+  },
+  {
+    "input": "list all services",
+    "output": "systemctl list-units --type=service"
+  },
+  {
+    "input": "show running services",
+    "output": "systemctl list-units --type=service"
+  },
+  {
+    "input": "show failed services",
+    "output": "systemctl --failed"
+  },
+  {
+    "input": "what services failed",
+    "output": "systemctl --failed"
+  },
+  {
+    "input": "start service <NAME>",
+    "output": "sudo systemctl start <NAME>"
+  },
+  {
+    "input": "stop service <NAME>",
+    "output": "sudo systemctl stop <NAME>"
+  },
+  {
+    "input": "restart service <NAME>",
+    "output": "sudo systemctl restart <NAME>"
+  },
+  {
+    "input": "reload service <NAME>",
+    "output": "sudo systemctl reload <NAME>"
+  },
+  {
+    "input": "apply config without restarting <NAME>",
+    "output": "sudo systemctl reload <NAME>"
+  },
+  {
+    "input": "check status of service <NAME>",
+    "output": "systemctl status <NAME>"
+  },
+  {
+    "input": "is service <NAME> running",
+    "output": "systemctl status <NAME>"
+  },
+  {
+    "input": "enable service <NAME> at boot",
+    "output": "sudo systemctl enable <NAME>"
+  },
+  {
+    "input": "autostart service <NAME>",
+    "output": "sudo systemctl enable <NAME>"
+  },
+  {
+    "input": "enable and start service <NAME>",
+    "output": "sudo systemctl enable --now <NAME>"
+  },
+  {
+    "input": "disable service <NAME> at boot",
+    "output": "sudo systemctl disable <NAME>"
+  },
+  {
+    "input": "stop <NAME> from starting on boot",
+    "output": "sudo systemctl disable <NAME>"
+  },
+  {
+    "input": "update package list",
+    "output": "sudo apt update"
+  },
+  {
+    "input": "refresh package index",
+    "output": "sudo apt update"
+  },
+  {
+    "input": "upgrade all packages",
+    "output": "sudo apt upgrade"
+  },
+  {
+    "input": "update all installed packages",
+    "output": "sudo apt upgrade"
+  },
+  {
+    "input": "update and upgrade system",
+    "output": "sudo apt update && sudo apt upgrade"
+  },
+  {
+    "input": "install package <NAME>",
+    "output": "sudo apt install <NAME>"
+  },
+  {
+    "input": "install <NAME> without confirmation",
+    "output": "sudo apt install -y <NAME>"
+  },
+  {
+    "input": "remove package <NAME>",
+    "output": "sudo apt remove <NAME>"
+  },
+  {
+    "input": "uninstall package <NAME>",
+    "output": "sudo apt remove <NAME>"
+  },
+  {
+    "input": "remove package and config files <NAME>",
+    "output": "sudo apt purge <NAME>"
+  },
+  {
+    "input": "clean up unused packages",
+    "output": "sudo apt autoremove"
+  },
+  {
+    "input": "remove orphaned dependencies",
+    "output": "sudo apt autoremove"
+  },
+  {
+    "input": "search for package <NAME>",
+    "output": "apt search <NAME>"
+  },
+  {
+    "input": "find package <NAME>",
+    "output": "apt search <NAME>"
+  },
+  {
+    "input": "show package details <NAME>",
+    "output": "apt show <NAME>"
+  },
+  {
+    "input": "what does package <NAME> do",
+    "output": "apt show <NAME>"
+  },
+  {
+    "input": "show current user",
+    "output": "whoami"
+  },
+  {
+    "input": "who am i",
+    "output": "whoami"
+  },
+  {
+    "input": "what is my username",
+    "output": "whoami"
+  },
+  {
+    "input": "show user id and groups",
+    "output": "id"
+  },
+  {
+    "input": "what groups am i in",
+    "output": "groups"
+  },
+  {
+    "input": "show my groups",
+    "output": "groups"
+  },
+  {
+    "input": "show logged in users",
+    "output": "w"
+  },
+  {
+    "input": "who else is logged in",
+    "output": "w"
+  },
+  {
+    "input": "show login history",
+    "output": "last"
+  },
+  {
+    "input": "when did i last log in",
+    "output": "last"
+  },
+  {
+    "input": "show failed login attempts",
+    "output": "sudo lastb"
+  },
+  {
+    "input": "who tried to log in",
+    "output": "sudo lastb"
+  },
+  {
+    "input": "create user <USERNAME>",
+    "output": "sudo useradd -m <USERNAME>"
+  },
+  {
+    "input": "add new user <USERNAME>",
+    "output": "sudo useradd -m <USERNAME>"
+  },
+  {
+    "input": "delete user <USERNAME>",
+    "output": "sudo userdel -r <USERNAME>"
+  },
+  {
+    "input": "remove user and home directory <USERNAME>",
+    "output": "sudo userdel -r <USERNAME>"
+  },
+  {
+    "input": "change my password",
+    "output": "passwd"
+  },
+  {
+    "input": "set password for <USERNAME>",
+    "output": "sudo passwd <USERNAME>"
+  },
+  {
+    "input": "add user <USERNAME> to group <GROUP>",
+    "output": "sudo usermod -aG <GROUP> <USERNAME>"
+  },
+  {
+    "input": "give <USERNAME> sudo access",
+    "output": "sudo usermod -aG sudo <USERNAME>"
+  },
+  {
+    "input": "clear terminal",
+    "output": "clear"
+  },
+  {
+    "input": "clear screen",
+    "output": "clear"
+  },
+  {
+    "input": "show command history",
+    "output": "history"
+  },
+  {
+    "input": "what commands did i run",
+    "output": "history"
+  },
+  {
+    "input": "search command history for <KEYWORD>",
+    "output": "history | grep <KEYWORD>"
+  },
+  {
+    "input": "find previous command containing <KEYWORD>",
+    "output": "history | grep <KEYWORD>"
+  },
+  {
+    "input": "show current date and time",
+    "output": "date"
+  },
+  {
+    "input": "what time is it",
+    "output": "date"
+  },
+  {
+    "input": "what is todays date",
+    "output": "date"
+  },
+  {
+    "input": "show date in iso format",
+    "output": "date '+%Y-%m-%d'"
+  },
+  {
+    "input": "show calendar",
+    "output": "cal"
+  },
+  {
+    "input": "show calendar for this month",
+    "output": "cal"
+  },
+  {
+    "input": "show calendar for year <YEAR>",
+    "output": "cal <YEAR>"
+  },
+  {
+    "input": "print '<TEXT>'",
+    "output": "echo '<TEXT>'"
+  },
+  {
+    "input": "print <TEXT> without newline",
+    "output": "echo -n '<TEXT>'"
+  },
+  {
+    "input": "count files in directory",
+    "output": "ls | wc -l"
+  },
+  {
+    "input": "how many files are in this folder",
+    "output": "ls | wc -l"
+  },
+  {
+    "input": "edit cron jobs",
+    "output": "crontab -e"
+  },
+  {
+    "input": "add scheduled task",
+    "output": "crontab -e"
+  },
+  {
+    "input": "list cron jobs",
+    "output": "crontab -l"
+  },
+  {
+    "input": "show scheduled tasks",
+    "output": "crontab -l"
+  },
+  {
+    "input": "show open files",
+    "output": "lsof"
+  },
+  {
+    "input": "list files opened by processes",
+    "output": "lsof"
+  },
+  {
+    "input": "which process has port <PORT> open",
+    "output": "lsof -i :<PORT>"
+  },
+  {
+    "input": "show open file handles on port <PORT>",
+    "output": "lsof -i :<PORT>"
+  },
+  {
+    "input": "show open files for process <PID>",
+    "output": "lsof -p <PID>"
+  },
+  {
+    "input": "trace system calls of <COMMAND>",
+    "output": "strace <COMMAND>"
+  },
+  {
+    "input": "debug why <COMMAND> is failing",
+    "output": "strace <COMMAND>"
+  },
+  {
+    "input": "find duplicate files",
+    "output": "fdupes -r ."
+  },
+  {
+    "input": "search for duplicate files",
+    "output": "fdupes -r ."
+  }
 ]
-
-    
