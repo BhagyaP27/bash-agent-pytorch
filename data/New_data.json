@@ -1,0 +1,1019 @@
+[
+  {
+    "id": "fs_001",
+    "category": "filesystem.list",
+    "input": "list all files",
+    "output": "ls -la",
+    "description": "List all files and directories including hidden ones with permissions, owner, size, and timestamps",
+    "flags": { "-l": "long format", "-a": "include hidden (dot) files" },
+    "variations": ["show files", "what is in this folder", "show me what is here", "whats in this directory", "display directory contents"],
+    "notes": "Use -la to always include hidden files; bare 'ls' misses dotfiles. For directories only: ls -d */"
+  },
+  {
+    "id": "fs_002",
+    "category": "filesystem.list",
+    "input": "list only directories",
+    "output": "ls -d */",
+    "description": "List only subdirectories in the current directory",
+    "flags": { "-d": "list directories themselves, not their contents" },
+    "variations": ["show only folders", "what folders are here", "which directories exist here"],
+    "notes": "The trailing slash glob */ expands to only directory entries"
+  },
+  {
+    "id": "fs_003",
+    "category": "filesystem.navigate",
+    "input": "show current directory",
+    "output": "pwd",
+    "description": "Print the absolute path of the current working directory",
+    "variations": ["where am i", "what directory am i in", "what folder am i in", "which directory am i in"],
+    "notes": "Returns a fully resolved path, resolving symlinks only with pwd -P"
+  },
+  {
+    "id": "fs_004",
+    "category": "filesystem.navigate",
+    "input": "go to home directory",
+    "output": "cd ~",
+    "description": "Change working directory to the current user's home directory",
+    "variations": ["go home", "change to home", "navigate to home", "switch to home"],
+    "notes": "~ expands to $HOME. Equivalent: 'cd' with no arguments also goes home"
+  },
+  {
+    "id": "fs_005",
+    "category": "filesystem.navigate",
+    "input": "go to previous directory",
+    "output": "cd -",
+    "description": "Switch back to the last directory you were in",
+    "variations": ["go back", "return to previous folder", "switch back"],
+    "notes": "cd - prints the path it switches to and toggles between two directories"
+  },
+  {
+    "id": "fs_006",
+    "category": "filesystem.navigate",
+    "input": "go up one level",
+    "output": "cd ..",
+    "description": "Move to the parent directory",
+    "variations": ["go up", "move to parent directory", "navigate up"],
+    "notes": "cd ../.. goes up two levels; use pwd afterward to confirm location"
+  },
+  {
+    "id": "fs_007",
+    "category": "filesystem.create",
+    "input": "create a new directory named <NAME>",
+    "output": "mkdir <NAME>",
+    "description": "Create a single new directory with the given name",
+    "flags": {},
+    "variations": ["make folder <NAME>", "make directory <NAME>", "create folder <NAME>"],
+    "notes": "Fails if directory already exists. Use mkdir -p <NAME> to suppress errors and create parent dirs as needed"
+  },
+  {
+    "id": "fs_008",
+    "category": "filesystem.create",
+    "input": "create nested directories <PATH>",
+    "output": "mkdir -p <PATH>",
+    "description": "Create directory and all required parent directories in one command",
+    "flags": { "-p": "create parents as needed, no error if existing" },
+    "variations": ["make nested folders <PATH>", "create full path <PATH>"],
+    "notes": "e.g. mkdir -p src/components/utils creates three levels at once"
+  },
+  {
+    "id": "fs_009",
+    "category": "filesystem.create",
+    "input": "create empty file named <NAME>",
+    "output": "touch <NAME>",
+    "description": "Create a new empty file, or update the access/modification timestamp if it already exists",
+    "variations": ["make new file <NAME>", "create file <NAME>"],
+    "notes": "Does not overwrite content if the file exists — only updates timestamps"
+  },
+  {
+    "id": "fs_010",
+    "category": "filesystem.create",
+    "input": "create a <EXT> file named <NAME>",
+    "output": "touch <NAME>.<EXT>",
+    "description": "Create an empty file with the given name and extension",
+    "variations": ["make a <EXT> file called <NAME>", "new <EXT> file named <NAME>"],
+    "notes": "Extension is purely cosmetic; Linux does not require file extensions"
+  },
+  {
+    "id": "fs_011",
+    "category": "filesystem.delete",
+    "input": "delete file <FILENAME>",
+    "output": "rm <FILENAME>",
+    "description": "Permanently remove a single file — no trash, no undo",
+    "flags": {},
+    "variations": ["remove file <FILENAME>", "erase file <FILENAME>"],
+    "notes": "DESTRUCTIVE and permanent. Use rm -i for interactive confirmation prompt. Never run rm -rf / or rm -rf *"
+  },
+  {
+    "id": "fs_012",
+    "category": "filesystem.delete",
+    "input": "delete directory <DIRNAME>",
+    "output": "rm -r <DIRNAME>",
+    "description": "Recursively delete a directory and all its contents",
+    "flags": { "-r": "recursive — required for directories" },
+    "variations": ["remove directory <DIRNAME>", "delete folder <DIRNAME>", "remove folder <DIRNAME>"],
+    "notes": "DESTRUCTIVE and permanent. Add -i for per-file confirmation. rmdir works only on empty directories"
+  },
+  {
+    "id": "fs_013",
+    "category": "filesystem.delete",
+    "input": "delete empty directory <DIRNAME>",
+    "output": "rmdir <DIRNAME>",
+    "description": "Remove a directory only if it is empty — safer than rm -r",
+    "variations": ["remove empty folder <DIRNAME>"],
+    "notes": "Fails with an error if the directory has any contents, acting as a safety check"
+  },
+  {
+    "id": "fs_014",
+    "category": "filesystem.copy",
+    "input": "copy <SOURCE> to <DEST>",
+    "output": "cp <SOURCE> <DEST>",
+    "description": "Copy a file, creating DEST as the new copy",
+    "flags": {},
+    "variations": ["duplicate <SOURCE> as <DEST>", "make copy of <SOURCE>"],
+    "notes": "If DEST is an existing directory, the file is copied into it. Use cp -p to preserve timestamps and permissions"
+  },
+  {
+    "id": "fs_015",
+    "category": "filesystem.copy",
+    "input": "copy directory <SOURCE> to <DEST>",
+    "output": "cp -r <SOURCE> <DEST>",
+    "description": "Recursively copy an entire directory tree",
+    "flags": { "-r": "recursive — required for directories" },
+    "variations": ["duplicate folder <SOURCE>", "backup directory <SOURCE>"],
+    "notes": "Use cp -rp to also preserve permissions and timestamps"
+  },
+  {
+    "id": "fs_016",
+    "category": "filesystem.move",
+    "input": "move <FILENAME> to <DIRNAME>",
+    "output": "mv <FILENAME> <DIRNAME>/",
+    "description": "Move a file into a directory",
+    "variations": ["transfer <FILENAME> to <DIRNAME>"],
+    "notes": "Also used to rename: 'mv old.txt new.txt'. Works across filesystems unlike hard links"
+  },
+  {
+    "id": "fs_017",
+    "category": "filesystem.move",
+    "input": "rename file <OLD> to <NEW>",
+    "output": "mv <OLD> <NEW>",
+    "description": "Rename a file or directory by moving it to a new name in the same location",
+    "variations": ["rename <OLD> to <NEW>"],
+    "notes": "mv overwrites <NEW> if it already exists without warning unless -i is used"
+  },
+  {
+    "id": "fs_018",
+    "category": "filesystem.view",
+    "input": "show contents of <FILENAME>",
+    "output": "cat <FILENAME>",
+    "description": "Print the full contents of a file to stdout",
+    "flags": {},
+    "variations": ["read file <FILENAME>", "display file <FILENAME>", "print file <FILENAME>", "whats in <FILENAME>"],
+    "notes": "For large files, use 'less <FILENAME>' to paginate. cat also concatenates multiple files: cat file1 file2"
+  },
+  {
+    "id": "fs_019",
+    "category": "filesystem.view",
+    "input": "page through <FILENAME>",
+    "output": "less <FILENAME>",
+    "description": "Open a file in a scrollable pager — q to quit, / to search",
+    "variations": ["scroll through <FILENAME>", "view large file <FILENAME>"],
+    "notes": "Preferred over cat for large files. Supports forward/backward navigation and regex search"
+  },
+  {
+    "id": "fs_020",
+    "category": "filesystem.view",
+    "input": "show first <NUM> lines of <FILENAME>",
+    "output": "head -n <NUM> <FILENAME>",
+    "description": "Print the first N lines of a file",
+    "flags": { "-n <NUM>": "number of lines to show" },
+    "variations": ["head <NUM> lines of <FILENAME>", "display start of <FILENAME>"],
+    "notes": "Default without -n is 10 lines. Useful for inspecting file structure without loading the whole file"
+  },
+  {
+    "id": "fs_021",
+    "category": "filesystem.view",
+    "input": "show last <NUM> lines of <FILENAME>",
+    "output": "tail -n <NUM> <FILENAME>",
+    "description": "Print the last N lines of a file",
+    "flags": { "-n <NUM>": "number of lines", "-f": "follow — stream new lines as they are appended" },
+    "variations": ["tail last <NUM> lines of <FILENAME>", "show end of <FILENAME>"],
+    "notes": "Use 'tail -f <FILENAME>' to follow a live log file in real time"
+  },
+  {
+    "id": "fs_022",
+    "category": "filesystem.view",
+    "input": "follow log file <FILENAME>",
+    "output": "tail -f <FILENAME>",
+    "description": "Stream a file in real time, printing new lines as they are written",
+    "flags": { "-f": "follow mode" },
+    "variations": ["watch log file <FILENAME>", "stream log <FILENAME>", "monitor log <FILENAME>"],
+    "notes": "Ctrl+C to stop. Use tail -F to keep following even if the file is rotated"
+  },
+  {
+    "id": "fs_023",
+    "category": "filesystem.edit",
+    "input": "edit file <FILENAME>",
+    "output": "nano <FILENAME>",
+    "description": "Open a file in the nano text editor (beginner-friendly, Ctrl+O to save, Ctrl+X to exit)",
+    "variations": ["open file <FILENAME>"],
+    "notes": "For power users: vim <FILENAME> or vi <FILENAME>. nano is safest default for agents"
+  },
+  {
+    "id": "fs_024",
+    "category": "filesystem.search",
+    "input": "find all <EXT> files",
+    "output": "find . -name '*.<EXT>'",
+    "description": "Recursively search for all files matching an extension from the current directory",
+    "flags": { "-name": "match by filename pattern" },
+    "variations": ["search for <EXT> files", "locate <EXT> files", "where are my <EXT> files"],
+    "notes": "Use -iname for case-insensitive matching. Scope to a path: find /var/log -name '*.log'"
+  },
+  {
+    "id": "fs_025",
+    "category": "filesystem.search",
+    "input": "find file named <FILENAME>",
+    "output": "find / -name '<FILENAME>' 2>/dev/null",
+    "description": "Search the entire filesystem for a file by exact name, suppressing permission errors",
+    "flags": { "2>/dev/null": "discard permission-denied errors" },
+    "variations": ["locate file <FILENAME>", "where is file <FILENAME>", "search for file named <FILENAME>"],
+    "notes": "Searching from / is slow; scope to /home or /var when possible"
+  },
+  {
+    "id": "fs_026",
+    "category": "filesystem.search",
+    "input": "find files modified today",
+    "output": "find . -mtime 0",
+    "description": "Find files whose modification time is within the last 24 hours",
+    "flags": { "-mtime 0": "modified within the last day" },
+    "variations": ["search recently changed files", "find recent files", "locate files modified today"],
+    "notes": "-mtime 1 means 1-2 days ago; -mtime -1 means within the last day (same as 0 for most use cases). Use -newer <REFFILE> to find files newer than a reference file"
+  },
+  {
+    "id": "fs_027",
+    "category": "filesystem.search",
+    "input": "find empty directories",
+    "output": "find . -type d -empty",
+    "description": "Find all empty subdirectories recursively",
+    "flags": { "-type d": "directories only", "-empty": "must be empty" },
+    "variations": ["search for empty folders", "locate empty directories"],
+    "notes": "find . -type f -empty finds empty files instead"
+  },
+  {
+    "id": "fs_028",
+    "category": "filesystem.stats",
+    "input": "count lines in <FILENAME>",
+    "output": "wc -l <FILENAME>",
+    "description": "Count the number of newline characters (lines) in a file",
+    "flags": { "-l": "lines", "-w": "words", "-c": "bytes" },
+    "variations": ["how many lines in <FILENAME>", "number of lines in <FILENAME>"],
+    "notes": "wc -w <FILENAME> counts words; wc -c <FILENAME> counts bytes. Combine: wc -lwc <FILENAME>"
+  },
+  {
+    "id": "fs_029",
+    "category": "filesystem.stats",
+    "input": "show file size of <FILENAME>",
+    "output": "ls -lh <FILENAME>",
+    "description": "Display detailed info including human-readable file size",
+    "flags": { "-l": "long format", "-h": "human-readable sizes (KB, MB, GB)" },
+    "variations": ["how big is <FILENAME>", "what is the size of <FILENAME>"],
+    "notes": "Use du -sh <FILENAME> for actual disk usage (differs from apparent size for sparse files)"
+  },
+  {
+    "id": "fs_030",
+    "category": "filesystem.stats",
+    "input": "show file permissions of <FILENAME>",
+    "output": "ls -l <FILENAME>",
+    "description": "Show permissions, owner, group, size, and last-modified date of a file",
+    "flags": { "-l": "long listing" },
+    "variations": ["check permissions of <FILENAME>", "who owns <FILENAME>", "what permissions does <FILENAME> have"],
+    "notes": "Permission string format: -rwxr-xr-x (type + owner + group + other)"
+  },
+  {
+    "id": "fs_031",
+    "category": "filesystem.permissions",
+    "input": "make <FILENAME> executable",
+    "output": "chmod +x <FILENAME>",
+    "description": "Add execute permission for all users (owner, group, others)",
+    "flags": { "+x": "add execute bit" },
+    "variations": ["give execute permission to <FILENAME>", "add execute permission <FILENAME>"],
+    "notes": "Use chmod u+x <FILENAME> to restrict execute permission to the owner only"
+  },
+  {
+    "id": "fs_032",
+    "category": "filesystem.permissions",
+    "input": "change permissions of <FILENAME> to <MODE>",
+    "output": "chmod <MODE> <FILENAME>",
+    "description": "Set file permissions using an octal mode (e.g. 755, 644, 600)",
+    "flags": {},
+    "variations": ["set permissions of <FILENAME>", "chmod <FILENAME> to <MODE>"],
+    "notes": "755 = rwxr-xr-x (executable, world-readable). 644 = rw-r--r-- (readable, not executable). 600 = rw------- (private)"
+  },
+  {
+    "id": "fs_033",
+    "category": "filesystem.permissions",
+    "input": "change owner of <FILENAME> to <USER>",
+    "output": "chown <USER> <FILENAME>",
+    "description": "Change the owning user of a file (requires sudo or root)",
+    "variations": ["set file owner to <USER>", "transfer ownership of <FILENAME> to <USER>"],
+    "notes": "chown <USER>:<GROUP> <FILENAME> changes both owner and group in one command"
+  },
+  {
+    "id": "fs_034",
+    "category": "filesystem.archive",
+    "input": "compress directory <NAME> into archive",
+    "output": "tar -czf <NAME>.tar.gz <NAME>/",
+    "description": "Create a gzip-compressed tar archive of a directory",
+    "flags": { "-c": "create", "-z": "gzip compress", "-f": "output filename" },
+    "variations": ["archive folder <NAME>", "zip up directory <NAME>", "create archive of <NAME>"],
+    "notes": "Use -j instead of -z for bzip2 (smaller but slower). Verify with: tar -tzf <NAME>.tar.gz"
+  },
+  {
+    "id": "fs_035",
+    "category": "filesystem.archive",
+    "input": "extract archive <FILENAME>",
+    "output": "tar -xzf <FILENAME>",
+    "description": "Extract a gzip-compressed tar archive in the current directory",
+    "flags": { "-x": "extract", "-z": "gzip", "-f": "filename", "-v": "verbose (optional)" },
+    "variations": ["unpack <FILENAME>", "decompress <FILENAME>", "unzip archive <FILENAME>"],
+    "notes": "Add -C /path/to/dest to extract to a specific directory. List contents first: tar -tzf <FILENAME>"
+  },
+  {
+    "id": "fs_036",
+    "category": "filesystem.archive",
+    "input": "list contents of archive <FILENAME>",
+    "output": "tar -tzf <FILENAME>",
+    "description": "Preview archive contents without extracting",
+    "flags": { "-t": "list contents" },
+    "variations": ["peek inside archive <FILENAME>", "show files in <FILENAME>"],
+    "notes": "Good practice before extracting to verify paths and avoid directory traversal surprises"
+  },
+  {
+    "id": "fs_037",
+    "category": "filesystem.diff",
+    "input": "compare file <FILE1> and <FILE2>",
+    "output": "diff <FILE1> <FILE2>",
+    "description": "Show line-by-line differences between two files",
+    "variations": ["show difference between <FILE1> and <FILE2>", "diff <FILE1> <FILE2>"],
+    "notes": "Use diff -u for unified format (easier to read). diff -r compares two directories recursively"
+  },
+  {
+    "id": "fs_038",
+    "category": "filesystem.sort",
+    "input": "sort contents of <FILENAME>",
+    "output": "sort <FILENAME>",
+    "description": "Output the lines of a file in alphabetical order (does not modify the file)",
+    "flags": { "-r": "reverse order", "-n": "numeric sort", "-u": "remove duplicate lines" },
+    "variations": ["alphabetically sort <FILENAME>", "sort file <FILENAME>"],
+    "notes": "sort -n for numeric order; sort -k2 to sort by second column; sort -u to deduplicate"
+  },
+  {
+    "id": "fs_039",
+    "category": "filesystem.link",
+    "input": "create symbolic link <LINK> pointing to <TARGET>",
+    "output": "ln -s <TARGET> <LINK>",
+    "description": "Create a soft (symbolic) link — a pointer to another file or directory",
+    "flags": { "-s": "symbolic link" },
+    "variations": ["make symlink <LINK> to <TARGET>", "create soft link <LINK>"],
+    "notes": "Hard links (ln without -s) cannot span filesystems and cannot point to directories"
+  },
+  {
+    "id": "fs_040",
+    "category": "filesystem.sync",
+    "input": "sync directory <SOURCE> to <DEST>",
+    "output": "rsync -av <SOURCE> <DEST>",
+    "description": "Mirror a directory, copying only changed files (efficient incremental backup)",
+    "flags": { "-a": "archive mode (recursive + preserve permissions)", "-v": "verbose" },
+    "variations": ["synchronize <SOURCE> to <DEST>", "mirror <SOURCE> to <DEST>"],
+    "notes": "Add --delete to remove files from DEST that no longer exist in SOURCE. Use -n (dry run) to preview changes"
+  },
+  {
+    "id": "search_001",
+    "category": "search.grep",
+    "input": "search for '<PATTERN>' in <FILENAME>",
+    "output": "grep '<PATTERN>' <FILENAME>",
+    "description": "Print lines in a file that match a pattern",
+    "flags": { "-i": "case-insensitive", "-n": "show line numbers", "-r": "recursive", "-l": "list matching filenames only", "-v": "invert — lines NOT matching" },
+    "variations": ["find '<PATTERN>' in <FILENAME>", "look for text <PATTERN> in <FILENAME>"],
+    "notes": "Use grep -rn '<PATTERN>' . to search all files recursively. grep -c counts matches per file"
+  },
+  {
+    "id": "search_002",
+    "category": "search.grep",
+    "input": "search for '<PATTERN>' recursively",
+    "output": "grep -rn '<PATTERN>' .",
+    "description": "Search all files in the current directory tree for a pattern, showing file and line number",
+    "flags": { "-r": "recursive", "-n": "line numbers" },
+    "variations": ["find all occurrences of <PATTERN>", "grep recursively for <PATTERN>"],
+    "notes": "Add --include='*.py' to restrict to specific file types: grep -rn '<PATTERN>' . --include='*.py'"
+  },
+  {
+    "id": "disk_001",
+    "category": "disk.usage",
+    "input": "check available disk space",
+    "output": "df -h",
+    "description": "Show filesystem disk space usage in human-readable format for all mounted filesystems",
+    "flags": { "-h": "human-readable (KB, MB, GB)" },
+    "variations": ["how much disk space do i have", "how much free space is left", "do i have enough storage"],
+    "notes": "Check 'Use%' column — above 90% is concerning. df -h / shows only the root filesystem"
+  },
+  {
+    "id": "disk_002",
+    "category": "disk.usage",
+    "input": "show folder sizes",
+    "output": "du -sh *",
+    "description": "Show summarized disk usage for each item in the current directory",
+    "flags": { "-s": "summarize (one line per argument)", "-h": "human-readable" },
+    "variations": ["what is taking up space", "which directories are largest", "what is using disk space"],
+    "notes": "du -sh */ shows only subdirectories. Sort by size: du -sh * | sort -rh"
+  },
+  {
+    "id": "disk_003",
+    "category": "disk.usage",
+    "input": "find largest files",
+    "output": "du -ah . | sort -rh | head -n 10",
+    "description": "Identify the 10 largest files and directories under the current path",
+    "variations": ["show largest files", "what files take the most space"],
+    "notes": "Pipe through head -n 20 to see more results"
+  },
+  {
+    "id": "disk_004",
+    "category": "disk.partitions",
+    "input": "show disk partitions",
+    "output": "fdisk -l",
+    "description": "List all disk partitions and their sizes (requires sudo)",
+    "variations": ["list disk partitions", "display partitions"],
+    "notes": "lsblk is a cleaner tree view of block devices and partitions without requiring sudo"
+  },
+  {
+    "id": "proc_001",
+    "category": "process.list",
+    "input": "show running processes",
+    "output": "ps aux",
+    "description": "List all running processes with PID, CPU%, memory%, and command",
+    "flags": { "a": "all users", "u": "user-oriented format", "x": "include processes without tty" },
+    "variations": ["what processes are running", "list all processes", "show active processes"],
+    "notes": "ps aux | grep <NAME> to filter by process name. For a live view, use 'top' or 'htop'"
+  },
+  {
+    "id": "proc_002",
+    "category": "process.monitor",
+    "input": "monitor system resources",
+    "output": "top",
+    "description": "Interactive real-time view of CPU, memory, and process activity",
+    "variations": ["show system monitor", "watch cpu usage", "show resource usage"],
+    "notes": "Press q to quit, k to kill a process, M to sort by memory, P to sort by CPU. 'htop' is a friendlier alternative if installed"
+  },
+  {
+    "id": "proc_003",
+    "category": "process.kill",
+    "input": "kill process with PID <PID>",
+    "output": "kill <PID>",
+    "description": "Send SIGTERM (graceful stop) to a process by its PID",
+    "flags": { "-9": "SIGKILL — force kill, cannot be ignored", "-15": "SIGTERM — graceful stop (default)" },
+    "variations": ["terminate process <PID>", "stop process <PID>"],
+    "notes": "Get PID from 'ps aux' or 'pgrep <NAME>'. Use kill -9 only if the process ignores SIGTERM"
+  },
+  {
+    "id": "proc_004",
+    "category": "process.kill",
+    "input": "kill process named <NAME>",
+    "output": "pkill <NAME>",
+    "description": "Send SIGTERM to all processes matching a name pattern",
+    "variations": ["stop process named <NAME>", "terminate all <NAME> processes"],
+    "notes": "pkill -9 <NAME> force-kills. killall <NAME> kills by exact name. Use pgrep <NAME> first to preview which PIDs would be affected"
+  },
+  {
+    "id": "proc_005",
+    "category": "process.background",
+    "input": "run <COMMAND> in background",
+    "output": "<COMMAND> &",
+    "description": "Start a command and immediately return the shell prompt, running the job in the background",
+    "variations": ["run <COMMAND> without blocking", "start <COMMAND> in background"],
+    "notes": "Use 'jobs' to list background jobs; 'fg' to bring last background job to foreground; 'bg' to resume a stopped job"
+  },
+  {
+    "id": "proc_006",
+    "category": "process.run",
+    "input": "run script <FILENAME>",
+    "output": "bash <FILENAME>",
+    "description": "Execute a shell script using bash",
+    "variations": ["execute script <FILENAME>"],
+    "notes": "Alternatively: chmod +x <FILENAME> && ./<FILENAME>. Use 'bash -x <FILENAME>' for debug tracing"
+  },
+  {
+    "id": "net_001",
+    "category": "network.info",
+    "input": "show my IP address",
+    "output": "ip addr",
+    "description": "Display all network interfaces and their assigned IP addresses",
+    "variations": ["what is my ip address", "show network interfaces", "display my ip"],
+    "notes": "ip addr show eth0 for a specific interface. 'hostname -I' prints just the primary IP"
+  },
+  {
+    "id": "net_002",
+    "category": "network.info",
+    "input": "show open ports",
+    "output": "netstat -tuln",
+    "description": "List all TCP and UDP ports currently listening for connections",
+    "flags": { "-t": "TCP", "-u": "UDP", "-l": "listening only", "-n": "numeric (no DNS resolution)" },
+    "variations": ["what ports are open", "which ports are listening", "list listening ports"],
+    "notes": "ss -tuln is the modern replacement for netstat. Add -p flag (with sudo) to see which process owns each port: ss -tulnp"
+  },
+  {
+    "id": "net_003",
+    "category": "network.info",
+    "input": "show routing table",
+    "output": "ip route",
+    "description": "Display the kernel IP routing table",
+    "variations": ["display routes", "show network routes", "list routes"],
+    "notes": "ip route replaces the deprecated 'route -n'. Look for the 'default' line to find your gateway"
+  },
+  {
+    "id": "net_004",
+    "category": "network.test",
+    "input": "test connection to <HOST>",
+    "output": "ping -c 4 <HOST>",
+    "description": "Send 4 ICMP echo packets to a host to test reachability and round-trip time",
+    "flags": { "-c 4": "stop after 4 packets" },
+    "variations": ["ping <HOST>", "check connectivity to <HOST>", "is <HOST> reachable"],
+    "notes": "Without -c the command runs forever — always specify -c for scripts. Some hosts block ICMP; use curl or nc to test HTTP connectivity instead"
+  },
+  {
+    "id": "net_005",
+    "category": "network.test",
+    "input": "check internet connection",
+    "output": "ping -c 4 google.com",
+    "description": "Confirm internet connectivity by pinging a well-known public host",
+    "variations": ["do i have internet", "is internet working", "am i connected to internet"],
+    "notes": "Also test DNS: ping 8.8.8.8 (IP). If IP works but domain doesn't, DNS is the issue"
+  },
+  {
+    "id": "net_006",
+    "category": "network.test",
+    "input": "trace route to <HOST>",
+    "output": "traceroute <HOST>",
+    "description": "Show the network hops from your machine to a remote host",
+    "variations": ["trace network path to <HOST>", "show route to <HOST>"],
+    "notes": "tracepath is an alternative that doesn't require sudo. Useful for diagnosing where packets are being dropped"
+  },
+  {
+    "id": "net_007",
+    "category": "network.dns",
+    "input": "look up DNS for <DOMAIN>",
+    "output": "nslookup <DOMAIN>",
+    "description": "Query DNS to resolve a domain name to its IP address(es)",
+    "variations": ["resolve domain <DOMAIN>", "query dns for <DOMAIN>"],
+    "notes": "dig <DOMAIN> gives more detailed output. dig +short <DOMAIN> returns only the IPs"
+  },
+  {
+    "id": "net_008",
+    "category": "network.dns",
+    "input": "flush DNS cache",
+    "output": "systemd-resolve --flush-caches",
+    "description": "Clear the systemd-resolved DNS cache to force fresh lookups",
+    "variations": ["clear dns cache", "reset dns cache"],
+    "notes": "On older systems: /etc/init.d/nscd restart. Verify flush: systemd-resolve --statistics"
+  },
+  {
+    "id": "net_009",
+    "category": "network.download",
+    "input": "download file from <URL>",
+    "output": "wget <URL>",
+    "description": "Download a file from a URL to the current directory",
+    "flags": { "-O <NAME>": "save as specific filename", "-q": "quiet mode" },
+    "variations": ["fetch file from <URL>", "get file from <URL>"],
+    "notes": "curl -O <URL> is an alternative. Use wget -c to resume interrupted downloads"
+  },
+  {
+    "id": "net_010",
+    "category": "network.download",
+    "input": "download <URL> and save as <FILENAME>",
+    "output": "wget -O <FILENAME> <URL>",
+    "description": "Download from a URL and save to a specific filename",
+    "variations": ["curl <URL> to <FILENAME>"],
+    "notes": "curl equivalent: curl -o <FILENAME> <URL>"
+  },
+  {
+    "id": "net_011",
+    "category": "network.firewall",
+    "input": "show firewall rules",
+    "output": "iptables -L",
+    "description": "List all active iptables firewall rules (requires sudo)",
+    "variations": ["display firewall rules", "list firewall rules"],
+    "notes": "iptables -L -v shows packet/byte counters. On systems using ufw: 'ufw status verbose'"
+  },
+  {
+    "id": "sys_001",
+    "category": "system.info",
+    "input": "show system information",
+    "output": "uname -a",
+    "description": "Print all system information: kernel version, hostname, architecture, OS",
+    "flags": { "-a": "all info", "-r": "kernel release only", "-m": "machine architecture" },
+    "variations": ["what operating system am i using", "what is my os", "show system details"],
+    "notes": "cat /etc/os-release gives distro-specific info (Ubuntu version, etc.)"
+  },
+  {
+    "id": "sys_002",
+    "category": "system.info",
+    "input": "show kernel version",
+    "output": "uname -r",
+    "description": "Print only the running kernel version string",
+    "variations": ["what kernel am i running", "which kernel version"],
+    "notes": "Useful when checking if a kernel update requires a reboot"
+  },
+  {
+    "id": "sys_003",
+    "category": "system.info",
+    "input": "show system uptime",
+    "output": "uptime",
+    "description": "Show how long the system has been running, number of users, and load averages",
+    "variations": ["how long has the system been running", "how long is the system up", "system uptime"],
+    "notes": "Load averages above number-of-CPUs suggest the system is overloaded"
+  },
+  {
+    "id": "sys_004",
+    "category": "system.info",
+    "input": "show hostname",
+    "output": "hostname",
+    "description": "Print the machine's hostname",
+    "variations": ["what is my hostname", "what is this machine called", "whats my computer name"],
+    "notes": "hostnamectl gives full static/transient/pretty names. Set hostname: hostnamectl set-hostname <NAME>"
+  },
+  {
+    "id": "sys_005",
+    "category": "system.info",
+    "input": "show CPU information",
+    "output": "lscpu",
+    "description": "Display CPU architecture, cores, threads, speed, and cache information",
+    "variations": ["show processor info", "display cpu details", "get cpu info"],
+    "notes": "nproc prints just the number of available CPUs — useful in scripts"
+  },
+  {
+    "id": "sys_006",
+    "category": "system.memory",
+    "input": "show memory usage",
+    "output": "free -h",
+    "description": "Display total, used, free, and available RAM and swap in human-readable format",
+    "flags": { "-h": "human-readable" },
+    "variations": ["how much memory do i have", "how much ram is free", "check memory"],
+    "notes": "The 'available' column is more meaningful than 'free' — it estimates memory usable by new processes"
+  },
+  {
+    "id": "sys_007",
+    "category": "system.power",
+    "input": "restart the system",
+    "output": "sudo reboot",
+    "description": "Gracefully reboot the machine (requires sudo)",
+    "variations": ["reboot system", "restart computer"],
+    "notes": "Warns logged-in users if any. Use 'shutdown -r now' as equivalent"
+  },
+  {
+    "id": "sys_008",
+    "category": "system.power",
+    "input": "shut down the system",
+    "output": "sudo shutdown -h now",
+    "description": "Gracefully halt and power off the machine immediately (requires sudo)",
+    "flags": { "-h": "halt after shutdown", "now": "immediately (0 minute delay)" },
+    "variations": ["power off system", "turn off computer", "shutdown now"],
+    "notes": "shutdown -h +5 schedules a shutdown in 5 minutes with a broadcast warning to users"
+  },
+  {
+    "id": "sys_009",
+    "category": "system.hardware",
+    "input": "list block devices",
+    "output": "lsblk",
+    "description": "Show block devices (disks, partitions) in a tree layout",
+    "variations": ["show disks", "show storage devices"],
+    "notes": "lsblk -f shows filesystem types and mount points. Good for verifying which disk is which before partitioning"
+  },
+  {
+    "id": "sys_010",
+    "category": "system.hardware",
+    "input": "list USB devices",
+    "output": "lsusb",
+    "description": "List all USB buses and connected devices",
+    "variations": ["show usb devices", "display connected usb"],
+    "notes": "lsusb -v for verbose output. lspci lists PCI devices (graphics cards, network adapters)"
+  },
+  {
+    "id": "sys_011",
+    "category": "system.env",
+    "input": "show environment variables",
+    "output": "env",
+    "description": "Print all environment variables set in the current shell session",
+    "variations": ["list env vars", "what environment variables are set", "show my env variables"],
+    "notes": "printenv <VAR> prints a single variable. echo $HOME prints $HOME specifically"
+  },
+  {
+    "id": "sys_012",
+    "category": "system.env",
+    "input": "show my home directory",
+    "output": "echo $HOME",
+    "description": "Print the path of the current user's home directory",
+    "variations": ["what is my home directory", "where is home", "what is my home folder"],
+    "notes": "Also accessible via: cd ~ && pwd. $HOME is set at login from /etc/passwd"
+  },
+  {
+    "id": "sys_013",
+    "category": "system.env",
+    "input": "set environment variable <KEY> to <VALUE>",
+    "output": "export <KEY>=<VALUE>",
+    "description": "Define an environment variable in the current shell and export it to child processes",
+    "variations": ["export variable <KEY>", "define env var <KEY>"],
+    "notes": "To persist across sessions, add to ~/.bashrc or ~/.profile. Unset with: unset <KEY>"
+  },
+  {
+    "id": "sys_014",
+    "category": "system.logs",
+    "input": "show system logs",
+    "output": "journalctl",
+    "description": "View logs from systemd's journal (all services, kernel, boot)",
+    "flags": { "-u <SERVICE>": "filter by service unit", "-f": "follow new entries", "-n <NUM>": "show last N lines", "--since today": "only today's logs" },
+    "variations": ["view system logs", "check system logs", "display system journal"],
+    "notes": "journalctl -u nginx -f follows nginx logs live. journalctl --since '1 hour ago' filters by time"
+  },
+  {
+    "id": "sys_015",
+    "category": "system.services",
+    "input": "list all services",
+    "output": "systemctl list-units --type=service",
+    "description": "Show all loaded systemd service units and their current state",
+    "variations": ["show services", "display running services"],
+    "notes": "Add --state=failed to see only failed services"
+  },
+  {
+    "id": "sys_016",
+    "category": "system.services",
+    "input": "start service <NAME>",
+    "output": "sudo systemctl start <NAME>",
+    "description": "Start a systemd service (requires sudo)",
+    "variations": ["run service <NAME>", "launch service <NAME>"],
+    "notes": "systemctl start does not persist across reboots — use 'enable' to auto-start on boot"
+  },
+  {
+    "id": "sys_017",
+    "category": "system.services",
+    "input": "stop service <NAME>",
+    "output": "sudo systemctl stop <NAME>",
+    "description": "Stop a running systemd service (requires sudo)",
+    "variations": ["halt service <NAME>", "shut down service <NAME>"],
+    "notes": null
+  },
+  {
+    "id": "sys_018",
+    "category": "system.services",
+    "input": "restart service <NAME>",
+    "output": "sudo systemctl restart <NAME>",
+    "description": "Stop and start a service to apply new configuration",
+    "variations": ["reload service <NAME>"],
+    "notes": "systemctl reload <NAME> sends SIGHUP (applies config without full restart) — preferred for nginx, apache2"
+  },
+  {
+    "id": "sys_019",
+    "category": "system.services",
+    "input": "check service status <NAME>",
+    "output": "systemctl status <NAME>",
+    "description": "Show current state, recent log output, and PID of a systemd service",
+    "variations": ["show status of <NAME>", "is <NAME> running"],
+    "notes": "Exit code 0 = active, 1 = inactive, 3 = not found/dead. Useful in scripts: systemctl is-active <NAME>"
+  },
+  {
+    "id": "sys_020",
+    "category": "system.services",
+    "input": "enable service <NAME> at boot",
+    "output": "sudo systemctl enable <NAME>",
+    "description": "Configure a service to start automatically on system boot",
+    "variations": ["autostart service <NAME>", "enable <NAME> on boot"],
+    "notes": "systemctl enable --now <NAME> enables AND starts immediately in one command"
+  },
+  {
+    "id": "sys_021",
+    "category": "system.services",
+    "input": "disable service <NAME> at boot",
+    "output": "sudo systemctl disable <NAME>",
+    "description": "Remove a service from the boot startup sequence",
+    "variations": ["stop <NAME> from starting at boot"],
+    "notes": null
+  },
+  {
+    "id": "pkg_001",
+    "category": "package.apt",
+    "input": "update package list",
+    "output": "sudo apt update",
+    "description": "Refresh the local list of available packages from all configured repositories",
+    "variations": ["refresh package list", "update repositories", "sync package index"],
+    "notes": "Run this before apt install or apt upgrade to ensure you get the latest versions"
+  },
+  {
+    "id": "pkg_002",
+    "category": "package.apt",
+    "input": "upgrade all packages",
+    "output": "sudo apt upgrade",
+    "description": "Install available upgrades for all installed packages",
+    "variations": ["update all packages", "upgrade system packages"],
+    "notes": "Run 'apt update' first. Use 'apt full-upgrade' to also handle dependency changes and package removals"
+  },
+  {
+    "id": "pkg_003",
+    "category": "package.apt",
+    "input": "install package <NAME>",
+    "output": "sudo apt install <NAME>",
+    "description": "Download and install a package and its dependencies",
+    "flags": { "-y": "auto-confirm all prompts (non-interactive)" },
+    "variations": ["add package <NAME>", "install software <NAME>"],
+    "notes": "Use apt install -y for scripted/automated installs. Check package name first with: apt search <NAME>"
+  },
+  {
+    "id": "pkg_004",
+    "category": "package.apt",
+    "input": "remove package <NAME>",
+    "output": "sudo apt remove <NAME>",
+    "description": "Uninstall a package, keeping its configuration files",
+    "variations": ["uninstall package <NAME>", "delete package <NAME>"],
+    "notes": "apt purge <NAME> also removes config files. apt autoremove cleans up orphaned dependencies"
+  },
+  {
+    "id": "pkg_005",
+    "category": "package.apt",
+    "input": "search for package <NAME>",
+    "output": "apt search <NAME>",
+    "description": "Search the package index for packages matching a keyword",
+    "variations": ["find package <NAME>", "look for package <NAME>"],
+    "notes": "apt-cache show <NAME> gives a detailed description before installing"
+  },
+  {
+    "id": "user_001",
+    "category": "user.info",
+    "input": "show current user",
+    "output": "whoami",
+    "description": "Print the username of the currently logged-in user",
+    "variations": ["who am i", "what is my username", "which user am i"],
+    "notes": "id prints username plus UID, GID, and group memberships"
+  },
+  {
+    "id": "user_002",
+    "category": "user.info",
+    "input": "show logged-in users",
+    "output": "w",
+    "description": "Show who is logged in, their terminal, login time, and what they are running",
+    "variations": ["who is logged in", "show active users", "list logged in users"],
+    "notes": "'who' is simpler (just name + terminal + time). 'last' shows login history"
+  },
+  {
+    "id": "user_003",
+    "category": "user.info",
+    "input": "show login history",
+    "output": "last",
+    "description": "Display a list of recent logins, reboots, and logouts from /var/log/wtmp",
+    "variations": ["display login history", "when did i last login"],
+    "notes": "last <USERNAME> filters to one user. lastb shows failed login attempts (requires sudo)"
+  },
+  {
+    "id": "user_004",
+    "category": "user.manage",
+    "input": "create user <USERNAME>",
+    "output": "sudo useradd -m <USERNAME>",
+    "description": "Create a new user account with a home directory (requires sudo)",
+    "flags": { "-m": "create home directory", "-s /bin/bash": "set login shell" },
+    "variations": ["add user <USERNAME>"],
+    "notes": "Follow with 'passwd <USERNAME>' to set a password. adduser (Debian) is a friendlier interactive alternative"
+  },
+  {
+    "id": "user_005",
+    "category": "user.manage",
+    "input": "delete user <USERNAME>",
+    "output": "sudo userdel -r <USERNAME>",
+    "description": "Remove a user account and their home directory (requires sudo)",
+    "flags": { "-r": "also remove home directory and mail spool" },
+    "variations": ["remove user <USERNAME>"],
+    "notes": "Omit -r to keep the home directory"
+  },
+  {
+    "id": "user_006",
+    "category": "user.manage",
+    "input": "change password",
+    "output": "passwd",
+    "description": "Change the current user's password interactively",
+    "variations": ["set password", "update my password"],
+    "notes": "sudo passwd <USERNAME> changes another user's password"
+  },
+  {
+    "id": "user_007",
+    "category": "user.manage",
+    "input": "add user <USERNAME> to group <GROUP>",
+    "output": "sudo usermod -aG <GROUP> <USERNAME>",
+    "description": "Append a user to a supplementary group without removing existing group memberships",
+    "flags": { "-a": "append (do not remove from other groups)", "-G": "supplementary group" },
+    "variations": ["add <USERNAME> to <GROUP>"],
+    "notes": "User must log out and back in for the group change to take effect. Verify with: groups <USERNAME>"
+  },
+  {
+    "id": "user_008",
+    "category": "user.info",
+    "input": "show user groups",
+    "output": "groups",
+    "description": "List all groups the current user belongs to",
+    "variations": ["what groups am i in", "list my groups", "show groups"],
+    "notes": "groups <USERNAME> shows groups for a specific user. id shows groups with GIDs"
+  },
+  {
+    "id": "shell_001",
+    "category": "shell.misc",
+    "input": "clear terminal",
+    "output": "clear",
+    "description": "Clear the terminal screen (scroll buffer is preserved — you can scroll up)",
+    "variations": ["clear screen", "clean terminal", "clear display"],
+    "notes": "Ctrl+L does the same. 'reset' also reinitializes the terminal (useful after garbled output)"
+  },
+  {
+    "id": "shell_002",
+    "category": "shell.history",
+    "input": "show command history",
+    "output": "history",
+    "description": "Print a numbered list of previously executed commands from ~/.bash_history",
+    "variations": ["show previous commands", "what commands did i run", "list my command history"],
+    "notes": "history | grep <KEYWORD> searches history. !<NUMBER> re-runs a command by its history number"
+  },
+  {
+    "id": "shell_003",
+    "category": "shell.history",
+    "input": "search command history for <KEYWORD>",
+    "output": "history | grep <KEYWORD>",
+    "description": "Filter the command history for entries matching a keyword",
+    "variations": ["find in command history <KEYWORD>", "look up previous command <KEYWORD>"],
+    "notes": "Ctrl+R in the shell triggers reverse-incremental-search through history interactively"
+  },
+  {
+    "id": "shell_004",
+    "category": "shell.info",
+    "input": "show current date and time",
+    "output": "date",
+    "description": "Print the current system date and time",
+    "variations": ["what time is it", "what is the date", "what day is it", "what is todays date"],
+    "notes": "date '+%Y-%m-%d' for ISO format only. date '+%H:%M:%S' for time only"
+  },
+  {
+    "id": "shell_005",
+    "category": "shell.info",
+    "input": "show calendar",
+    "output": "cal",
+    "description": "Display a calendar for the current month",
+    "variations": ["display calendar", "show current month"],
+    "notes": "cal 2025 shows the full year. cal 3 2025 shows March 2025"
+  },
+  {
+    "id": "shell_006",
+    "category": "shell.output",
+    "input": "print '<TEXT>'",
+    "output": "echo '<TEXT>'",
+    "description": "Print a string to stdout",
+    "variations": ["echo '<TEXT>'", "output '<TEXT>'"],
+    "notes": "echo -n suppresses the trailing newline. printf offers more formatting options"
+  },
+  {
+    "id": "shell_007",
+    "category": "shell.pipe",
+    "input": "count files in directory",
+    "output": "ls | wc -l",
+    "description": "Count how many items (files and directories) are in the current directory",
+    "variations": ["how many files are here", "number of files in directory"],
+    "notes": "ls -la | wc -l includes the 'total' header line — subtract 1 for accuracy"
+  },
+  {
+    "id": "cron_001",
+    "category": "scheduler.cron",
+    "input": "edit cron jobs",
+    "output": "crontab -e",
+    "description": "Open the current user's crontab in the default editor to add or modify scheduled tasks",
+    "variations": ["schedule task", "add cron job", "edit crontab"],
+    "notes": "Cron format: min hour day month weekday command. Example: '0 2 * * * /backup.sh' runs at 2am daily"
+  },
+  {
+    "id": "cron_002",
+    "category": "scheduler.cron",
+    "input": "list cron jobs",
+    "output": "crontab -l",
+    "description": "Print the current user's scheduled cron jobs",
+    "variations": ["show cron jobs", "display scheduled tasks", "what tasks are scheduled"],
+    "notes": "sudo crontab -l -u <USER> lists another user's crontab"
+  },
+  {
+    "id": "debug_001",
+    "category": "debug.open_files",
+    "input": "show open files",
+    "output": "lsof",
+    "description": "List all files opened by any process on the system (requires sudo for full view)",
+    "flags": { "-u <USER>": "filter by user", "-p <PID>": "filter by process ID", "-i :<PORT>": "filter by network port" },
+    "variations": ["list open files", "display open files"],
+    "notes": "lsof -i :80 shows what is listening on port 80. lsof +D /path shows files open in a directory"
+  },
+  {
+    "id": "debug_002",
+    "category": "debug.trace",
+    "input": "trace system calls of <COMMAND>",
+    "output": "strace <COMMAND>",
+    "description": "Trace and print all system calls made by a command — useful for debugging crashes or permission issues",
+    "variations": ["debug system calls for <COMMAND>"],
+    "notes": "strace -p <PID> attaches to a running process. -e trace=file to filter to file-related calls only"
+  }
+]

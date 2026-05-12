@@ -17,8 +17,8 @@ from tqdm import tqdm
 DATA_PATH      = 'data/raw_commands.json'
 SAVE_DIR       = 'checkpoints/t5_bash_agent'   # must match api.py + inference.py
 MODEL_NAME     = 't5-small'
-EPOCHS         = 10
-BATCH_SIZE     = 8
+EPOCHS         = 30 # 10 was to few for meaningful fine tuning
+BATCH_SIZE     = 4 # was 8, smaller batch =more gradient updates per epoch on small dataset
 LEARNING_RATE  = 3e-5
 MAX_INPUT_LEN  = 64
 MAX_TARGET_LEN = 64
